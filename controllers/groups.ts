@@ -33,8 +33,14 @@ export const updateRsvpStatus: RequestHandler<
         }
         const toTrue = req.body.filter(g => g.rsvpStatus);
         const toFalse = req.body.filter(g => !g.rsvpStatus);
-        const convertedTrue = await queryToUpdateRsvpStatusToTrue(toTrue.map(g => g.userId));
-        const convertedFalse = await queryToUpdateRsvpStatusToTrue(toFalse.map(g => g.userId));
+        let convertedTrue: Group = [];
+        if (toTrue?.length) {
+            convertedTrue = await queryToUpdateRsvpStatusToTrue(toTrue.map(g => g.userId));
+        }
+        let convertedFalse: Group = [];
+        if (toFalse?.length) {
+            convertedFalse = await queryToUpdateRsvpStatusToFalse(toFalse.map(g => g.userId));
+        }
         res.status(200).json([...convertedTrue, ...convertedFalse]);
     } catch (error) {
         next(error);
