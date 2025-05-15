@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "cd ./client && npm run build",
+    "build:client": "cd ./client && npm run build",
+    "build:server": "tsc && mkdir -p ./dist/queries/sql && cp -r ./queries/sql/ ./dist/queries/sql/.",
+    "prestart": "npm run build:server && npm run build:client",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -19,8 +21,10 @@
     "pg-promise": "^11.13.0"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.15",
     "nodemon": "^3.1.10",
     "typescript": "^5.8.3"
