@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build:client": "cd ./client && npm run build",
+    "build:client": "cd ./client && npm run build && mkdir -p ../dist/client/build; cp -r ./build ../dist/client",
     "build:server": "tsc && mkdir -p ./dist/queries/sql && cp -r ./queries/sql/ ./dist/queries/sql/.",
     "prestart": "npm run build:server && npm run build:client",
     "start": "node ./bin/www"
