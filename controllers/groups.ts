@@ -14,7 +14,8 @@ export const getUsersByGroupId: RequestHandler<
     try {
         const { groupId } = req.params;
         const group = await queryToGetUsersByGroupId(groupId);
-        res.status(200).json(group);
+        const sorted = group.sort((a, b) => a.userId - b.userId);
+        res.status(200).json(sorted);
     } catch (error) {
         next(error);
     }
@@ -41,7 +42,9 @@ export const updateRsvpStatus: RequestHandler<
         if (toFalse?.length) {
             convertedFalse = await queryToUpdateRsvpStatusToFalse(toFalse.map(g => g.userId));
         }
-        res.status(200).json([...convertedTrue, ...convertedFalse]);
+        const result = [...convertedTrue, ...convertedFalse];
+        const sorted = result.sort((a, b) => a.userId - b.userId);
+        res.status(200).json(sorted);
     } catch (error) {
         next(error);
     }
