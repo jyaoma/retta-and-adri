@@ -2,15 +2,15 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from "react-router";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import HomePage from './pages/home';
+import LandingPage from './pages/landing';
 import RsvpPage from './pages/rsvp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HashRouter>
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/rsvp/:groupId" element={<RsvpPage />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/:groupId" element={<RsvpPage />} />
     </Routes>
   </HashRouter>
 );

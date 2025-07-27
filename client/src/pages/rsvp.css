@@ -1,5 +1,77 @@
-body {
-    font-family: 'Comic Sans MS', sans-serif;
+.page {
+    font-family: Garamond, serif;
+    font-size: 3vw;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+
+    .welcome {
+        background-image: url("../../../public/images/retta2.jpg");
+        background-size: cover;
+        text-align: center;
+
+        .title {
+            font-size: 7vw;
+        }
+    }
+
+    .one-pane {
+        width: 100vw;
+        padding: 2vh 2vw;
+    }
+
+    .pane-header {
+        font-size: 3vw;
+    }
+
+    .two-pane {
+        display: flex;
+        width: 100vw;
+
+        .two-pane-left {
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+            font-size: 12pt;
+            text-align: center;
+            background-size: 100vw;
+            background-position: center center; /* Optional: centers the image within the element */
+            background-repeat: no-repeat; /* Optional: prevents image repetition */
+            padding: 2vh 2vw;
+        }
+
+        .two-pane-right {
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+            font-size: 12pt;
+            text-align: center;
+            background-size: cover;
+            padding: 2vh 2vw;
+        }
+    }
+
+    .love-story {
+        .love-story-left {
+            background-image: url("../../../public/images/retta1.jpg");
+        }
+    }
+
+    .rsvp-right {
+        background-image: url("../../../public/images/retta3.jpg");
+    }
+
+    .gift-info-left {
+        background-image: url("../../../public/images/retta4.jpg");
+    }
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
 }
 
 .guest {
