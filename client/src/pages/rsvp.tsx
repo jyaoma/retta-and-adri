@@ -4,10 +4,11 @@ import groupsApi from '../api/groups';
 
 import './rsvp.css';
 import {Group} from "../types/groups";
+import {Button, ButtonGroup, TextField} from "@mui/material";
 
 const RsvpPage = () => {
     const { groupId: nullableGroupId } = useParams();
-    const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: 0, peopleMaximum: 1});
+    const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: -1, peopleMaximum: 1});
     const [isLoading, setIsLoading] = useState(false);
 
     const groupId = nullableGroupId ?? '';
@@ -33,16 +34,6 @@ const RsvpPage = () => {
     useEffect(() => {
         fetchGroup();
     }, []);
-
-    // const flipUser = (userId) => {
-    //     const newGroup = group.slice();
-    //     newGroup.forEach((guest, i) => {
-    //         if (guest.userId === userId) {
-    //             newGroup[i].rsvpStatus = !group[i].rsvpStatus;
-    //         }
-    //     });
-    //     updateGroup(newGroup);
-    // }
 
     return (
         <div className="page">
@@ -74,6 +65,73 @@ const RsvpPage = () => {
             <div className="slide two-pane rsvp">
                 <div className="two-pane-left rsvp-left">
                     <div className="pane-header">Your attendance is truly a gift</div>
+                    <div>
+                    {
+                        group.peopleMaximum <= 1 ? (
+                            <>
+                                <div>Will you be attending?</div>
+                                <ButtonGroup>
+                                    <Button
+                                        variant={group.peopleRsvped === 1 ? "contained" : "outlined"}
+                                        onClick={() => {
+                                            updateGroup({ ...group, peopleRsvped: 1 })
+                                        }}
+                                    >
+                                        Yes
+                                    </Button>
+                                    <Button
+                                        variant={group.peopleRsvped === 0 ? "contained" : "outlined"}
+                                        onClick={() => {
+                                            updateGroup({ ...group, peopleRsvped: 0 })
+                                        }}
+                                    >
+                                        No
+                                    </Button>
+                                </ButtonGroup>
+                            </>
+                        ) : (
+                            <>
+                                <div>How many people in your group will be attending?</div>
+                                <ButtonGroup>
+                                    <Button
+                                        disabled={group.peopleRsvped <= 0}
+                                        variant="contained"
+                                        onClick={() => {
+                                            updateGroup({ ...group, peopleRsvped: group.peopleRsvped - 1})
+                                        }}
+                                    >
+                                        -
+                                    </Button>
+                                    <TextField
+                                        value={group.peopleRsvped}
+                                        slotProps={{
+                                            htmlInput: {
+                                                style: {
+                                                    textAlign: 'center'
+                                                }
+                                            },
+                                            input: {
+                                                style: {
+                                                    borderRadius: 0,
+                                                    width: '5vw'
+                                                }
+                                            }
+                                        }}
+                                    />
+                                    <Button
+                                        disabled={group.peopleRsvped >= group.peopleMaximum}
+                                        variant="contained"
+                                        onClick={() => {
+                                            updateGroup({ ...group, peopleRsvped: group.peopleRsvped + 1})
+                                        }}
+                                    >
+                                        +
+                                    </Button>
+                                </ButtonGroup>
+                            </>
+                        )
+                    }
+                    </div>
                 </div>
                 <div className="two-pane-right rsvp-right"></div>
             </div>
