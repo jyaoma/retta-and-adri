@@ -1,22 +1,25 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from "react-router";
 import groupsApi from '../api/groups';
 
 import './rsvp.css';
+import {Group} from "../types/groups";
 
 const RsvpPage = () => {
-    const { groupId } = useParams();
-    const [group, setGroup] = useState([]);
+    const { groupId: nullableGroupId } = useParams();
+    const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: 0, peopleMaximum: 1});
     const [isLoading, setIsLoading] = useState(false);
+
+    const groupId = nullableGroupId ?? '';
 
     const fetchGroup = useCallback(async () => {
         setIsLoading(true);
         const fetchedGroup = await groupsApi({ groupId });
         setGroup(fetchedGroup);
         setIsLoading(false);
-    });
+    }, []);
     
-    const updateGroup = useCallback(async updatedGroup => {
+    const updateGroup = useCallback(async (updatedGroup: Group) => {
         setIsLoading(true);
         const savedGroup = await groupsApi({
             groupId,
@@ -25,21 +28,21 @@ const RsvpPage = () => {
         });
         setGroup(savedGroup);
         setIsLoading(false);
-    });
+    }, []);
 
     useEffect(() => {
         fetchGroup();
     }, []);
 
-    const flipUser = (userId) => {
-        const newGroup = group.slice();
-        newGroup.forEach((guest, i) => {
-            if (guest.userId === userId) {
-                newGroup[i].rsvpStatus = !group[i].rsvpStatus;
-            }
-        });
-        updateGroup(newGroup);
-    }
+    // const flipUser = (userId) => {
+    //     const newGroup = group.slice();
+    //     newGroup.forEach((guest, i) => {
+    //         if (guest.userId === userId) {
+    //             newGroup[i].rsvpStatus = !group[i].rsvpStatus;
+    //         }
+    //     });
+    //     updateGroup(newGroup);
+    // }
 
     return (
         <div className="page">
@@ -64,18 +67,13 @@ const RsvpPage = () => {
                 <div className="two-pane-right location-right">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0197703356594!2d106.7036985801483!3d-6.128041583099425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a02bc96b7c8c5%3A0x775f42a2451ffbd1!2sSaint%20Mary%20Immaculate%20Catholic%20Church%2C%20Kalideres!5e0!3m2!1sen!2sus!4v1756669711286!5m2!1sen!2sus"
-                        height="100%" width="100%" style={{border: 0}} allowFullScreen=""
+                        height="100%" width="100%" style={{border: 0}}
                         referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div className="slide two-pane rsvp">
                 <div className="two-pane-left rsvp-left">
                     <div className="pane-header">Your attendance is truly a gift</div>
-                    {group.map(guest => (
-                        <div key={guest.userId} className="guest" onClick={() => flipUser(guest.userId)}>
-                            {guest.guestName}: {guest.rsvpStatus ? 'Yes' : 'No'}
-                        </div>
-                    ))}
                 </div>
                 <div className="two-pane-right rsvp-right"></div>
             </div>
