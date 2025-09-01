@@ -57,11 +57,14 @@ const RsvpPage = () => {
             <div className="slide two-pane location">
                 <div className="two-pane-left location-left">
                     <div className="pane-header">Celebrate with us at...</div>
+                    <div>St. Mary Immaculate Catholic Church</div>
+                    <div>Jl. Satu Maret No.27 1, RT.2/RW.13,</div>
+                    <div>Pegadungan, Kalideres, Jakarta Barat</div>
                 </div>
                 <div className="two-pane-right location-right">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6309056.59543504!2d-85.8594305!3d39.45590665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f2!3m3!1m2!1s0x885bfffa614b06c1%3A0x9922f9f915f9488b!2sDowntown%20Flavortown!5e0!3m2!1sen!2sus!4v1753649231282!5m2!1sen!2sus"
-                        height="100%" width="100%" style={{ border: 0 }} allowFullScreen=""
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0197703356594!2d106.7036985801483!3d-6.128041583099425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a02bc96b7c8c5%3A0x775f42a2451ffbd1!2sSaint%20Mary%20Immaculate%20Catholic%20Church%2C%20Kalideres!5e0!3m2!1sen!2sus!4v1756669711286!5m2!1sen!2sus"
+                        height="100%" width="100%" style={{border: 0}} allowFullScreen=""
                         referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
@@ -83,14 +86,14 @@ const RsvpPage = () => {
                     <div>Bank Name: BCA</div>
                     <div>Gabriella Claretta Dwiputri</div>
                     <div>5445056747</div>
-
+                    <br/>
                     <div>Bank Name: BCA</div>
                     <div>Adrianus Kurniawan</div>
                     <div>5770849863</div>
                 </div>
             </div>
             <div className="slide one-pane rules">
-                <div>Wedding rules</div>
+                <div className="pane-header">Wedding rules</div>
             </div>
         </div>
     );
