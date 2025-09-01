@@ -1,12 +1,10 @@
-export type Guest = {
-    userId: number,
-    guestName: string,
+export type Group = {
     groupId: string,
-    rsvpStatus: boolean
+    groupName: string,
+    peopleMaximum: number,
+    peopleRsvped: number
 };
-
-export type Group = Guest[];
 
 export type GroupRequestParams = {
     groupId: string
-}
+};

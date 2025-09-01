@@ -1,0 +1,6 @@
+select r.group_id as "groupId",
+	   r.group_name as "groupName",
+	   r.people_maximum as "peopleMaximum",
+	   r.people_rsvped as "peopleRsvped"
+from rettaadri.rsvp r
+where r.group_id = $/groupId/;

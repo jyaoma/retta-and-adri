@@ -1,6 +1,0 @@
-select r.user_id as "userId",
-	   r.guest_name as "guestName",
-	   r.group_id as "groupId",
-	   r.rsvp_status as "rsvpStatus"
-from rettaadri.rsvp r
-where r.group_id = $/groupId/;

@@ -1,7 +1,0 @@
-update rettaadri.rsvp
-set rsvp_status = false
-where user_id in ($/userIds:csv/)
-returning user_id as "userId",
-          guest_name as "guestName",
-          group_id as "groupId",
-          rsvp_status as "rsvpStatus"

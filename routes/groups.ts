@@ -1,9 +1,9 @@
 import express from 'express';
-import { getUsersByGroupId, updateRsvpStatus } from '../controllers/groups';
+import { getGroupById, updateRsvp } from '../controllers/groups';
 
 var router = express.Router();
 
-router.get('/:groupId', getUsersByGroupId);
-router.put('/:groupId', updateRsvpStatus);
+router.get('/:groupId', getGroupById);
+router.put('/:groupId', updateRsvp);
 
 export default router;

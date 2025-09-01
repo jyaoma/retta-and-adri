@@ -1,0 +1,7 @@
+update rettaadri.rsvp
+set people_rsvped = $/peopleRsvped/
+where group_id = $/groupId/
+returning group_id as "groupId",
+          group_name as "groupName",
+          people_maximum as "peopleMaximum",
+          people_rsvped as "peopleRsvped"
