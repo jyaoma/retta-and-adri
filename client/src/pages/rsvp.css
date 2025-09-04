@@ -90,6 +90,7 @@
         .welcome-image {
             object-fit: cover;
             height: 100vh;
+            width: 100vw;
 
             @media (orientation: portrait) {
                 transform: translate(-15%, 0);
@@ -316,7 +317,7 @@
 
         .submit-button {
             margin-top: 5vw;
-            font-size: 4vw;
+            font-size: 16pt;
             margin-left: auto;
             margin-right: auto;
         }
