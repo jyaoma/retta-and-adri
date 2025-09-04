@@ -5,7 +5,8 @@
   "scripts": {
     "build:client": "cd ./client && npm i && npm run build && mkdir -p ../dist/client/build; cp -r ./build ../dist/client",
     "build:server": "tsc && mkdir -p ./dist/queries/sql && cp -r ./queries/sql/ ./dist/queries/sql/.",
-    "build": "npm run build:server && npm run build:client",
+    "build:server:heroku": "tsc && mkdir -p ./dist/queries/sql && cp -r ./queries/sql/ ./dist/queries/.",
+    "build": "npm run build:server:heroku && npm run build:client",
     "preserver": "npm run build",
     "server": "node ./bin/www",
     "start": "node ./bin/www"
