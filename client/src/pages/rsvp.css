@@ -89,6 +89,7 @@
 
         .welcome-image {
             object-fit: cover;
+            overflow: hidden;
 
             @media (orientation: portrait) {
                 transform: translate(-15%, 0);
@@ -97,6 +98,7 @@
 
             @media (orientation: landscape) {
                 width: 100vw;
+                height: 100vh;
             }
         }
 

@@ -17,8 +17,6 @@ const RsvpPage = () => {
     const [loadedItems, setLoadedItems] = useState<number>(0);
     const [showOverlay, setShowOverlay] = useState<boolean>(true);
 
-    console.log(loadedItems);
-
     const groupId = nullableGroupId ?? '';
 
     const fetchGroup = useCallback(async () => {
