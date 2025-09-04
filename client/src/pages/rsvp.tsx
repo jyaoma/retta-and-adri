@@ -5,11 +5,12 @@ import groupsApi from '../api/groups';
 import './rsvp.css';
 import {Group} from "../types/groups";
 import {Button, ButtonGroup, TextField} from "@mui/material";
+import CheckIcon from '@mui/icons-material/Check';
 
 const RsvpPage = () => {
     const { groupId: nullableGroupId } = useParams();
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: -1, peopleMaximum: 1});
+    const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: -1, peopleMaximum: 1, hasSubmitted: false });
     // music
     // four images
     const loaderItems = 5;
@@ -58,6 +59,14 @@ const RsvpPage = () => {
                             <div className="welcome-group">
                                 <div className="subtitle">TO OUR HONORED GUEST{group.peopleMaximum >= 2 ? 'S' : ''}</div>
                                 <div className="title">{group.groupName}</div>
+                                {
+                                    group.hasSubmitted ? (
+                                        <div className="subtitle">
+                                            <CheckIcon color="primary" fontSize="small" />
+                                            <span>you have already rsvp'd</span>
+                                        </div>
+                                    ) : null
+                                }
                             </div>
                         ) : null
                     }
@@ -186,6 +195,15 @@ const RsvpPage = () => {
                                 )
                             }
                         </div>
+                        <Button
+                            variant="contained"
+                            className="submit-button"
+                            onClick={() => {
+                                updateGroup({ ...group, hasSubmitted: true })
+                            }}
+                        >
+                            submit
+                        </Button>
                     </div>
                 </div>
                 <div className="slide two-pane gift-info">
@@ -235,7 +253,7 @@ const RsvpPage = () => {
                                             setShowOverlay(false);
                                             await audioRef.current!.play()
                                         }}
-                                    >ENTER</Button>
+                                    >enter</Button>
                                 )
                             }
                         </div>

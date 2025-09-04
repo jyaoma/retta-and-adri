@@ -30,7 +30,7 @@ export const updateRsvp: RequestHandler<
             res.sendStatus(400);
             return;
         }
-        const updatedGroup = await queryToUpdateRsvp(groupId, req.body.peopleRsvped)
+        const updatedGroup = await queryToUpdateRsvp(groupId, req.body.peopleRsvped, req.body.hasSubmitted)
         res.status(200).json(updatedGroup);
     } catch (error) {
         next(error);

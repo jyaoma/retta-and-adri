@@ -1,7 +1,10 @@
 update rettaadri.rsvp
-set people_rsvped = $/peopleRsvped/
+set
+    people_rsvped = $/peopleRsvped/,
+    has_submitted = $/hasSubmitted/
 where group_id = $/groupId/
 returning group_id as "groupId",
           group_name as "groupName",
           people_maximum as "peopleMaximum",
-          people_rsvped as "peopleRsvped"
+          people_rsvped as "peopleRsvped",
+          has_submitted as "hasSubmitted"

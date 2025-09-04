@@ -2,7 +2,8 @@ export type Group = {
     groupId: string,
     groupName: string,
     peopleMaximum: number,
-    peopleRsvped: number
+    peopleRsvped: number,
+    hasSubmitted: boolean
 };
 
 export type GroupRequestParams = {

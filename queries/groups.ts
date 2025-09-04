@@ -12,5 +12,5 @@ export const queryToGetGroupById = (groupId: string): Promise<Group> =>
 const updateRsvp = new QueryFile(
     `${__dirname}/sql/updateRsvp.psql`
 );
-export const queryToUpdateRsvp = (groupId: string, peopleRsvped: number): Promise<Group> =>
-    db.one(updateRsvp, { groupId, peopleRsvped })
+export const queryToUpdateRsvp = (groupId: string, peopleRsvped: number, hasSubmitted: boolean): Promise<Group> =>
+    db.one(updateRsvp, { groupId, peopleRsvped, hasSubmitted })
