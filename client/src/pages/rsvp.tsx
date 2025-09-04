@@ -43,7 +43,7 @@ const RsvpPage = () => {
         <div className="site">
             <audio
                 ref={audioRef}
-                src={require('../No Matter Where You Are (Wedding Version)  - Us The Duo.mp3')}
+                src={require('../music.mp3')}
                 onCanPlay={() => setLoadedItems(x => x + 1)}
             />
             <div className="page">
