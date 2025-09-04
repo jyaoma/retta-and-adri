@@ -5,7 +5,8 @@
   "scripts": {
     "build:client": "cd ./client && npm run build && mkdir -p ../dist/client/build; cp -r ./build ../dist/client",
     "build:server": "tsc && mkdir -p ./dist/queries/sql && cp -r ./queries/sql/ ./dist/queries/sql/.",
-    "prestart": "npm run build:server && npm run build:client",
+    "preserver": "npm run build:server && npm run build:client",
+    "server": "node ./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -18,8 +19,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "pg-promise": "^11.13.0",
-    "typescript": "^5.8.3"
+    "pg-promise": "^11.13.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.8",
@@ -27,6 +27,7 @@
     "@types/express": "^5.0.1",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.15",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "typescript": "^5.8.3"
   }
 }
