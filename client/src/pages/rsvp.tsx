@@ -4,8 +4,9 @@ import groupsApi from '../api/groups';
 
 import './rsvp.css';
 import {Group} from "../types/groups";
-import {Button, ButtonGroup, TextField} from "@mui/material";
+import {Button, ButtonGroup, IconButton, TextField} from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
+import CopyIcon from '@mui/icons-material/ContentCopy'
 
 const RsvpPage = () => {
     const { groupId: nullableGroupId } = useParams();
@@ -13,7 +14,7 @@ const RsvpPage = () => {
     const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: -1, peopleMaximum: 1, hasSubmitted: false });
     // music
     // four images
-    const loaderItems = 5;
+    const loaderItems = 11;
     const [loadedItems, setLoadedItems] = useState<number>(0);
     const [showOverlay, setShowOverlay] = useState<boolean>(true);
 
@@ -37,12 +38,34 @@ const RsvpPage = () => {
         fetchGroup();
     }, [fetchGroup]);
 
+    const copyToClipboard = (textToCopy: string) => {
+        // Use the 'out of viewport hidden text area' trick
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+
+        // Move textarea out of the viewport so it's not visible
+        textArea.style.position = "absolute";
+        textArea.style.left = "-999999px";
+
+        document.body.prepend(textArea);
+        textArea.select();
+
+        try {
+            document.execCommand('copy');
+        } catch (error) {
+            console.error(error);
+        } finally {
+            textArea.remove();
+        }
+    }
+
     return (
         <div className="site">
             <audio
                 ref={audioRef}
                 src={require('../music.mp3')}
                 onCanPlay={() => setLoadedItems(x => x + 1)}
+                loop
             />
             <div className="page">
                 <div className="slide one-pane welcome">
@@ -70,9 +93,41 @@ const RsvpPage = () => {
                     }
                     <div className="welcome-content">
                         <div className="subtitle">WE INVITE YOU TO CELEBRATE</div>
-                        <div className="title">adrian and claretta</div>
+                        <div className="title">Claretta & Adrianus</div>
                         <div className="subtitle">17 JANUARY 2026</div>
                     </div>
+                </div>
+                <div className="slide two-pane the-bride">
+                    <img
+                        src={require('../images/retta5.png')}
+                        alt="the bride"
+                        className="two-pane-left the-bride-left"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
+                    <div className="two-pane-right the-bride-right">
+                        <div className="pane-header">the bride</div>
+                        <div>Gabriella Clarissa Dwiputri</div>
+                        <br/>
+                        <div>Second Daughter of:</div>
+                        <div>Mr. Husin Hassan</div>
+                        <div>Mrs. Suzy Sulaiman</div>
+                    </div>
+                </div>
+                <div className="slide two-pane the-groom">
+                    <div className="two-pane-left the-groom-left">
+                        <div className="pane-header">the groom</div>
+                        <div>Adrianus Kurniawan</div>
+                        <br/>
+                        <div>First Son of:</div>
+                        <div>Mr. Paulus Sugiharto</div>
+                        <div>Mrs. Angelina Sahbina</div>
+                    </div>
+                    <img
+                        src={require('../images/retta6.jpg')}
+                        alt="the groom"
+                        className="two-pane-right the-groom-right"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
                 </div>
                 <div className="slide two-pane love-story">
                     <img
@@ -97,6 +152,44 @@ const RsvpPage = () => {
                         <div>As endless as a bag of potato chips, all flavors and blocks.</div>
                         <div>Some say love is a serious, somber affair,</div>
                         <div>But for me, it's a feast, a food-filled dare.</div>
+                    </div>
+                </div>
+                <div className="slide love-story-two">
+                    <img
+                        src={require('../images/retta7.jpg')}
+                        alt="Love story"
+                        className="story-one-pic"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
+                    <div className="story-one-caption">
+                        Lorem ipsum crackalackin black amet, sizzle adipiscing ass.
+                    </div>
+                    <img
+                        src={require('../images/retta8.jpg')}
+                        alt="Love story"
+                        className="story-two-pic"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
+                    <div className="story-two-caption">
+                        Bizzle we gonne chung velizzle, pimpin' volutpizzle, suscipit brizzle, the bizzle vizzle, arcu.
+                    </div>
+                    <img
+                        src={require('../images/retta9.jpg')}
+                        alt="Love story"
+                        className="story-three-pic"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
+                    <div className="story-three-caption">
+                        Pellentesque egizzle tortor. Sed erizzle.
+                    </div>
+                    <img
+                        src={require('../images/retta10.jpg')}
+                        alt="Love story"
+                        className="story-four-pic"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
+                    <div className="story-four-caption">
+                        Fusce izzle pizzle dapibizzle turpizzle tempizzle for sure.
                     </div>
                 </div>
                 <div className="slide two-pane location">
@@ -206,14 +299,24 @@ const RsvpPage = () => {
                 </div>
                 <div className="slide two-pane gift-info">
                     <div className="two-pane-left gift-info-left">
-                        <div className="pane-header">gift info</div>
+                        <div className="pane-header">wedding gift</div>
                         <div>Bank Name: BCA</div>
                         <div>Gabriella Claretta Dwiputri</div>
-                        <div>5445056747</div>
+                        <div>
+                            5445056747
+                            <IconButton size="small" onClick={() => copyToClipboard('5445056747')}>
+                                <CopyIcon/>
+                            </IconButton>
+                        </div>
                         <br></br>
                         <div>Bank Name: BCA</div>
                         <div>Adrianus Kurniawan</div>
-                        <div>5770849863</div>
+                        <div>
+                            5770849863
+                            <IconButton size="small" onClick={() => copyToClipboard('5770849863')}>
+                                <CopyIcon/>
+                            </IconButton>
+                        </div>
                     </div>
                     <img
                         src={require('../images/retta4.jpg')}
@@ -223,11 +326,31 @@ const RsvpPage = () => {
                     />
                 </div>
                 <div className="slide one-pane rules">
-                    <div className="pane-header">wedding rules</div>
-                    <div>don't be nakie</div>
-                    <div>don't be drunkie</div>
-                    <div>be politey</div>
-                    <div>maybe a bit judgy</div>
+                    <div className="pane-header">wedding attire</div>
+                    <div className="attire">Please do not wear blue, black, or white and be as colorful as you want.</div>
+                    <div className="palette">
+                        <div className="color color-1" />
+                        <div className="color color-2" />
+                        <div className="color color-3" />
+                        <div className="color color-4" />
+                        <div className="color color-5" />
+                        <div className="color color-6" />
+                        <div className="color color-7" />
+                        <div className="color color-8" />
+                        <div className="color color-9" />
+                        <div className="color color-10" />
+                        <div className="color color-11" />
+                        <div className="color color-12" />
+                        <div className="color color-13" />
+                        <div className="color color-14" />
+                        <div className="color color-15" />
+                        <div className="color color-16" />
+                    </div>
+                </div>
+                <div className="slide one-pane thanks">
+                    <div className="pane-header">thank you for being part of our journey</div>
+                    <div>We look forward to sharing this special day with you. Your presence will be the greatest gift to us as we begin this new chapter together.</div>
+                    <div className="title">Claretta & Adrianus</div>
                 </div>
             </div>
             {
@@ -235,7 +358,7 @@ const RsvpPage = () => {
                     <div className="overlay">
                         <div className="overlay-content">
                             <div className="subtitle">WE INVITE YOU TO CELEBRATE</div>
-                            <div className="title">adrian and claretta</div>
+                            <div className="title">Claretta & Adrianus</div>
                             <div className="subtitle">17 JANUARY 2026</div>
                         </div>
                         <div className="loader-and-button">

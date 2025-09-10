@@ -1,3 +1,31 @@
+@font-face {
+    font-family: 'Whispering Signature';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../public/font/WhisperingSignature.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Cailyne';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../public/font/Cailyne.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Jasmine Reminiscentse';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../public/font/Jasmine Reminiscentse.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Neoteric';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../public/font/NEOTERIC.ttf') format('truetype');
+}
+
 .overlay {
     background-color: rgba(31, 31, 31, 0.5);
     backdrop-filter: blur(5vh);
@@ -16,11 +44,10 @@
         width: 100vw;
 
         .title {
-            font-family: 'Garamond', serif;
-            font-weight: bold;
+            font-family: 'Whispering Signature', serif;
 
             @media (orientation: portrait) {
-                font-size: 10vw;
+                font-size: 7vw;
                 padding: 4vw 0;
             }
 
@@ -30,6 +57,8 @@
         }
 
         .subtitle {
+            font-family: 'Cailyne', sans-serif;
+
             @media (orientation: portrait) {
                 font-size: 4vw;
             }
@@ -121,12 +150,11 @@
             }
 
             .title {
-                font-family: 'Garamond', serif;
-                font-weight: bold;
+                font-family: 'Neoteric', sans-serif;
                 white-space: normal;
 
                 @media (orientation: portrait) {
-                    font-size: 8vw;
+                    font-size: 6vw;
                     width: 70vw;
                 }
 
@@ -141,6 +169,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                font-family: 'Cailyne', sans-serif;
 
                 @media (orientation: landscape) {
                     font-size: 1vw;
@@ -175,11 +204,10 @@
             }
 
             .title {
-                font-family: 'Garamond', serif;
-                font-weight: bold;
+                font-family: 'Whispering Signature', serif;
 
                 @media (orientation: portrait) {
-                    font-size: 8vw;
+                    font-size: 7vw;
                 }
 
                 @media (orientation: landscape) {
@@ -188,6 +216,8 @@
             }
 
             .subtitle {
+                font-family: 'Cailyne', sans-serif;
+
                 @media (orientation: landscape) {
                     font-size: 1vw;
                 }
@@ -205,17 +235,16 @@
     }
 
     .pane-header {
-        font-family: 'Garamond', serif;
-        font-weight: bold;
+        font-family: 'Jasmine Reminiscentse', sans-serif;
 
         @media (orientation: portrait) {
-            font-size: 7vw;
+            font-size: 12vw;
             padding-bottom: 5vw;
             padding-top: 4vh;
         }
 
         @media (orientation: landscape) {
-            font-size: 2vw;
+            font-size: 5vw;
             padding-bottom: 2vw;
             padding-top: 2vw;
         }
@@ -237,9 +266,7 @@
             display: flex;
             flex-direction: column;
             text-align: center;
-            background-size: 100vw;
-            background-position: center center; /* Optional: centers the image within the element */
-            background-repeat: no-repeat; /* Optional: prevents image repetition */
+            object-fit: cover;
 
             @media (orientation: landscape) {
                 min-width: 50vw;
@@ -256,7 +283,7 @@
             display: flex;
             flex-direction: column;
             text-align: center;
-            background-size: cover;
+            object-fit: cover;
 
             @media (orientation: landscape) {
                 min-width: 50vw;
@@ -274,6 +301,22 @@
         }
     }
 
+    .the-bride {
+        .the-bride-left {
+            object-position: 0 0;
+        }
+
+        .the-bride-right {
+            background-color: #cdbdeb;
+        }
+    }
+
+    .the-groom {
+        .the-groom-left {
+            background-color: #ffd7d6;
+        }
+    }
+
     .love-story {
         background-color: #89CFF0;
 
@@ -288,6 +331,50 @@
             @media (orientation: landscape) {
                 width: 50vw;
                 height: 100vh;
+            }
+        }
+    }
+
+    .love-story-two {
+        display: grid;
+        background-color: #dbe098;
+
+        @media (orientation: portrait) {
+            grid-template-areas:
+                "story-one-pic story-one-caption"
+                "story-two-caption story-two-pic"
+                "story-three-pic story-three-caption"
+                "story-four-caption story-four-pic";
+        }
+
+        @media (orientation: landscape) {
+            grid-template-areas:
+                "story-one-pic story-two-caption story-three-pic story-four-caption"
+                "story-one-caption story-two-pic story-three-caption story-four-pic";
+        }
+
+        .story-one-pic { grid-area: story-one-pic; }
+        .story-one-caption { grid-area: story-one-caption; }
+        .story-two-pic { grid-area: story-two-pic; }
+        .story-two-caption { grid-area: story-two-caption; }
+        .story-three-pic { grid-area: story-three-pic; }
+        .story-three-caption { grid-area: story-three-caption; }
+        .story-four-pic { grid-area: story-four-pic; }
+        .story-four-caption { grid-area: story-four-caption; }
+
+        img {
+            object-fit: cover;
+
+            @media (orientation: landscape) {
+                min-width: 25vw;
+                max-width: 25vw;
+                height: 50vh;
+            }
+
+            @media (orientation: portrait) {
+                min-height: 25vh;
+                max-height: 25vh;
+                width: 50vw;
             }
         }
     }
@@ -351,6 +438,10 @@
         background-color: #F1C0B9;
     }
 
+    .gift-info-left {
+        padding: 0 5vw;
+    }
+
     .gift-info-right {
         object-fit: cover;
 
@@ -368,6 +459,79 @@
     .rules {
         background-color: #D3B5E5;
         text-align: center;
+
+        .attire {
+            padding: 0 5vw;
+        }
+
+        .palette {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            margin: 5vh auto;
+
+            @media (orientation: landscape) {
+                width: 56vh;
+
+                .color {
+                    height: 10vh;
+                    width: 10vh;
+                    border-radius: 10vh;
+                    margin: 2vh;
+                }
+            }
+
+            @media (orientation: portrait) {
+                width: 56vw;
+
+                .color {
+                    height: 10vw;
+                    width: 10vw;
+                    border-radius: 10vw;
+                    margin: 2vw;
+                }
+            }
+
+            .color-1 { background-color: #ee7ea0; }
+            .color-2 { background-color: #ffa9ba; }
+            .color-3 { background-color: #ffd7d6; }
+            .color-4 { background-color: #ea7d70; }
+            .color-5 { background-color: #f69f95; }
+            .color-6 { background-color: #ffaf6e; }
+            .color-7 { background-color: #ffcc80; }
+            .color-8 { background-color: #ffe2a6; }
+            .color-9 { background-color: #bcc07b; }
+            .color-10 { background-color: #dbe098; }
+            .color-11 { background-color: #d5e2d3; }
+            .color-12 { background-color: #9a81b0; }
+            .color-13 { background-color: #cdbdeb; }
+            .color-14 { background-color: #8e715b; }
+            .color-15 { background-color: #c9a98d; }
+            .color-16 { background-color: #e5daca; }
+        }
+    }
+
+    .thanks {
+        text-align: center;
+        background-color: #e5daca;
+
+        div {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        .title {
+            font-family: 'Whispering Signature', serif;
+
+            @media (orientation: portrait) {
+                margin-top: 7vw;
+                font-size: 7vw;
+            }
+
+            @media (orientation: landscape) {
+                margin-top: 2.5vw;
+                font-size: 2.5vw;
+            }
+        }
     }
 }
 

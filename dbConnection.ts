@@ -11,9 +11,9 @@ const cn = {
   database: cnObj.path?.[0],
   user: cnObj.user,
   password: cnObj.password,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // },
 };
 
 export const db = pgp(cn);

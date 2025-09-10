@@ -6,7 +6,7 @@ const LandingPage = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
     // music
     // four images
-    const loaderItems = 3;
+    const loaderItems = 9;
     const [loadedItems, setLoadedItems] = useState<number>(0);
     const [showOverlay, setShowOverlay] = useState<boolean>(true);
 
@@ -16,6 +16,7 @@ const LandingPage = () => {
                 ref={audioRef}
                 src={require('../music.mp3')}
                 onCanPlay={() => setLoadedItems(x => x + 1)}
+                loop
             />
             <div className="page">
                 <div className="slide one-pane welcome">
@@ -29,9 +30,41 @@ const LandingPage = () => {
                         <div className="subtitle">To RSVP, please use the link provided to you.</div>
                     </div>
                     <div className="welcome-content">
-                        <div className="title">adrian and claretta</div>
+                        <div className="title">Claretta & Adrianus</div>
                         <div className="subtitle">17 JANUARY 2026</div>
                     </div>
+                </div>
+                <div className="slide two-pane the-bride">
+                    <img
+                        src={require('../images/retta5.png')}
+                        alt="The Bride"
+                        className="two-pane-left the-bride-left"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
+                    <div className="two-pane-right the-bride-right">
+                        <div className="pane-header">The Bride</div>
+                        <div>Gabriella Clarissa Dwiputri</div>
+                        <br/>
+                        <div>Second Daughter of:</div>
+                        <div>Mr. Husin Hassan</div>
+                        <div>Mrs. Suzy Sulaiman</div>
+                    </div>
+                </div>
+                <div className="slide two-pane the-groom">
+                    <div className="two-pane-left the-groom-left">
+                        <div className="pane-header">The Groom</div>
+                        <div>Adrianus Kurniawan</div>
+                        <br/>
+                        <div>First Son of:</div>
+                        <div>Mr. Paulus Sugiharto</div>
+                        <div>Mrs. Angelina Sahbina</div>
+                    </div>
+                    <img
+                        src={require('../images/retta6.jpg')}
+                        alt="The Groom"
+                        className="two-pane-right the-groom-right"
+                        onLoad={() => setLoadedItems(x => x + 1)}
+                    />
                 </div>
                 <div className="slide two-pane love-story">
                     <img
@@ -59,11 +92,49 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
+            <div className="slide love-story-two">
+                <img
+                    src={require('../images/retta7.jpg')}
+                    alt="Love story"
+                    className="story-one-pic"
+                    onLoad={() => setLoadedItems(x => x + 1)}
+                />
+                <div className="story-one-caption">
+                    Lorem ipsum crackalackin black amet, sizzle adipiscing ass.
+                </div>
+                <img
+                    src={require('../images/retta8.jpg')}
+                    alt="Love story"
+                    className="story-two-pic"
+                    onLoad={() => setLoadedItems(x => x + 1)}
+                />
+                <div className="story-two-caption">
+                    Bizzle we gonne chung velizzle, pimpin' volutpizzle, suscipit brizzle, the bizzle vizzle, arcu.
+                </div>
+                <img
+                    src={require('../images/retta9.jpg')}
+                    alt="Love story"
+                    className="story-three-pic"
+                    onLoad={() => setLoadedItems(x => x + 1)}
+                />
+                <div className="story-three-caption">
+                    Pellentesque egizzle tortor. Sed erizzle.
+                </div>
+                <img
+                    src={require('../images/retta10.jpg')}
+                    alt="Love story"
+                    className="story-four-pic"
+                    onLoad={() => setLoadedItems(x => x + 1)}
+                />
+                <div className="story-four-caption">
+                    Fusce izzle pizzle dapibizzle turpizzle tempizzle for sure.
+                </div>
+            </div>
             {
                 showOverlay ? (
                     <div className="overlay">
                         <div className="overlay-content">
-                            <div className="title">adrian and claretta</div>
+                            <div className="title">Claretta & Adrianus</div>
                             <div className="subtitle">17 JANUARY 2026</div>
                         </div>
                         <div className="loader-and-button">
