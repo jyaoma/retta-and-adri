@@ -26,6 +26,13 @@
     src: url('../../public/font/NEOTERIC.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Brolimo';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../public/font/brolimo.woff2') format('woff');
+}
+
 .overlay {
     background-color: rgba(31, 31, 31, 0.5);
     backdrop-filter: blur(5dvh);
@@ -97,7 +104,7 @@
 }
 
 .page {
-    font-family: Lato, sans-serif;
+    font-family: Raleway, sans-serif;
     width: 100%;
     height: 100dvh;
     overflow-y: scroll;
@@ -319,6 +326,7 @@
 
     .love-story {
         background-color: #89CFF0;
+        font-family: 'Open Sans', sans-serif;
 
         .love-story-left {
             object-fit: cover;
@@ -338,13 +346,24 @@
     .love-story-two {
         display: grid;
         background-color: #dbe098;
+        font-family: 'Open Sans', sans-serif;
+
+        @media (orientation: portrait) {
+            font-size: 3dvw;
+        }
+
+        @media (orientation: landscape) {
+            font-size: 1dvw;
+        }
+
+        .story-caption {
+            padding: 5dvw;
+        }
 
         @media (orientation: portrait) {
             grid-template-areas:
                 "story-one-pic story-one-caption"
-                "story-two-caption story-two-pic"
-                "story-three-pic story-three-caption"
-                "story-four-caption story-four-pic";
+                "story-two-caption story-two-pic";
         }
 
         @media (orientation: landscape) {
@@ -357,25 +376,33 @@
         .story-one-caption { grid-area: story-one-caption; }
         .story-two-pic { grid-area: story-two-pic; }
         .story-two-caption { grid-area: story-two-caption; }
-        .story-three-pic { grid-area: story-three-pic; }
-        .story-three-caption { grid-area: story-three-caption; }
-        .story-four-pic { grid-area: story-four-pic; }
-        .story-four-caption { grid-area: story-four-caption; }
+        .story-three-pic { grid-area: story-one-pic; }
+        .story-three-caption { grid-area: story-one-caption; }
+        .story-four-pic { grid-area: story-two-pic; }
+        .story-four-caption { grid-area: story-two-caption; }
 
         img {
             object-fit: cover;
 
             @media (orientation: landscape) {
-                min-width: 25dvw;
-                max-width: 25dvw;
+                min-width: 50dvw;
+                max-width: 50dvw;
                 height: 50dvh;
             }
 
             @media (orientation: portrait) {
-                min-height: 25dvh;
-                max-height: 25dvh;
+                min-height: 50dvh;
+                max-height: 50dvh;
                 width: 50dvw;
             }
+        }
+
+        .love-story-heading {
+            font-family: 'Brolimo', sans-serif;
+        }
+
+        .love-story-text {
+            font-family: 'Open Sans', sans-serif;
         }
     }
 
@@ -436,19 +463,30 @@
 
     .gift-info {
         background-color: #F1C0B9;
-    }
 
-    .gift-info-right {
-        object-fit: cover;
+        .gift-info-left {
+            div {
+                padding-left: 5dvw;
+                padding-right: 5dvw;
+            }
 
-        @media (orientation: portrait) {
-            height: 50dvh;
-            width: 100dvw;
+            br {
+                display: block;
+            }
         }
 
-        @media (orientation: landscape) {
-            width: 50dvw;
-            height: 100dvh;
+        .gift-info-right {
+            object-fit: cover;
+
+            @media (orientation: portrait) {
+                height: 50dvh;
+                width: 100dvw;
+            }
+
+            @media (orientation: landscape) {
+                width: 50dvw;
+                height: 100dvh;
+            }
         }
     }
 
@@ -519,8 +557,8 @@
             font-family: 'Whispering Signature', serif;
 
             @media (orientation: portrait) {
-                margin-top: 7dvw;
-                font-size: 7dvw;
+                margin-top: 6dvw;
+                font-size: 6dvw;
             }
 
             @media (orientation: landscape) {
