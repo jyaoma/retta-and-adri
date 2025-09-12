@@ -358,6 +358,9 @@
 
         .story-caption {
             padding: 5dvw;
+            box-sizing: border-box;
+            height: 50dvh;
+            width: 50dvw;
         }
 
         @media (orientation: portrait) {

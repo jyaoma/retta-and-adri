@@ -7,6 +7,7 @@ import {Group} from "../types/groups";
 import {Button, ButtonGroup, IconButton, TextField} from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 import CopyIcon from '@mui/icons-material/ContentCopy'
+import Carousel from "../components/carousel";
 
 const RsvpPage = () => {
     const { groupId: nullableGroupId } = useParams();
@@ -14,7 +15,7 @@ const RsvpPage = () => {
     const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: -1, peopleMaximum: 1, hasSubmitted: false });
     // music
     // four images
-    const loaderItems = 11;
+    const loaderItems = 15;
     const [loadedItems, setLoadedItems] = useState<number>(0);
     const [showOverlay, setShowOverlay] = useState<boolean>(true);
 
@@ -141,11 +142,11 @@ const RsvpPage = () => {
                     </div>
                 </div>
                 <div className="slide love-story-two">
-                    <img
-                        src={require('../images/retta7.jpg')}
-                        alt="Love story"
+                    <Carousel
+                        images={[require('../images/retta7.jpg'), require('../images/adri1.jpeg')]}
+                        alt="Love Story"
                         className="story-one-pic"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        setLoadedItems={setLoadedItems}
                     />
                     <div className="story-one-caption story-caption">
                         <div className="love-story-heading">Where destiny first whispered</div>
@@ -155,11 +156,11 @@ const RsvpPage = () => {
                         <div className="love-story-text">two wandering souls drawn together</div>
                         <div className="love-story-text">by something greater than chance</div>
                     </div>
-                    <img
-                        src={require('../images/retta8.jpg')}
-                        alt="Love story"
+                    <Carousel
+                        images={[require('../images/retta8.jpg'), require('../images/adri2.jpeg')]}
+                        alt="Love Story"
                         className="story-two-pic"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        setLoadedItems={setLoadedItems}
                     />
                     <div className="story-two-caption story-caption">
                         <div className="love-story-heading">Two colors, one canvas</div>
@@ -172,11 +173,11 @@ const RsvpPage = () => {
                     </div>
                 </div>
                 <div className="slide love-story-two">
-                    <img
-                        src={require('../images/retta9.jpg')}
-                        alt="Love story"
+                    <Carousel
+                        images={[require('../images/retta9.jpg'), require('../images/adri3.jpeg')]}
+                        alt="Love Story"
                         className="story-three-pic"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        setLoadedItems={setLoadedItems}
                     />
                     <div className="story-three-caption story-caption">
                         <div className="love-story-heading">Faster than time, brigher than stars</div>
@@ -187,11 +188,11 @@ const RsvpPage = () => {
                         <div className="love-story-text">each trial, a flame that tempered us,</div>
                         <div className="love-story-text">each joy, a spark that made us shine brighter.</div>
                     </div>
-                    <img
-                        src={require('../images/retta10.jpg')}
-                        alt="Love story"
+                    <Carousel
+                        images={[require('../images/retta10.jpg'), require('../images/adri4.jpeg')]}
+                        alt="Love Story"
                         className="story-four-pic"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        setLoadedItems={setLoadedItems}
                     />
                     <div className="story-four-caption story-caption">
                         <div className="love-story-heading">Choosing eternity in simple joys</div>

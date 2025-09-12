@@ -1,0 +1,36 @@
+@keyframes turnInvisible {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes turnVisible {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.carousel {
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        object-fit: cover;
+    }
+
+    .invisible {
+        opacity: 0;
+    }
+
+    .transition-invisible {
+        animation-name: turnInvisible;
+        animation-duration: 1.1s;
+    }
+
+    .transition-visible {
+        animation-name: turnVisible;
+        animation-duration: 1.1s;
+    }
+}
