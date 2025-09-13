@@ -22,12 +22,12 @@ const Carousel = (props: CarouselProps) => {
             if (isTransitionVisible) {
                 setIsTransitionVisible(false);
             } else {
-                if (timer <= 4) {
+                if (timer <= 3) {
                     setTimer(x => x + 1);
-                    if (timer === 4) {
+                    if (timer === 3) {
                         setTransitionIndex(x => x - 1);
                     }
-                } else if (timer >= 5) {
+                } else if (timer >= 4) {
                     if (visibleImageIndex > 0) {
                         setVisibleImageIndex(x => x - 1)
                         setTimer(0);
