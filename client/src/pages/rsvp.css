@@ -359,8 +359,16 @@
         .story-caption {
             padding: 5dvw;
             box-sizing: border-box;
-            height: 50dvh;
-            width: 50dvw;
+
+            @media (orientation: portrait) {
+                height: 50dvh;
+                width: 50dvw;
+            }
+
+            @media (orientation: landscape) {
+                height: 100dvh;
+                width: 25dvw;
+            }
         }
 
         @media (orientation: portrait) {
@@ -371,8 +379,7 @@
 
         @media (orientation: landscape) {
             grid-template-areas:
-                "story-one-pic story-two-caption story-three-pic story-four-caption"
-                "story-one-caption story-two-pic story-three-caption story-four-pic";
+                "story-one-pic story-one-caption story-two-pic story-two-caption"
         }
 
         .story-one-pic { grid-area: story-one-pic; }
@@ -384,13 +391,11 @@
         .story-four-pic { grid-area: story-two-pic; }
         .story-four-caption { grid-area: story-two-caption; }
 
-        img {
-            object-fit: cover;
-
+        .carousel {
             @media (orientation: landscape) {
-                min-width: 50dvw;
-                max-width: 50dvw;
-                height: 50dvh;
+                min-width: 25dvw;
+                max-width: 25dvw;
+                height: 100dvh;
             }
 
             @media (orientation: portrait) {
@@ -400,8 +405,23 @@
             }
         }
 
+        img {
+            object-fit: cover;
+
+            width: 100%;
+            height: 100%;
+        }
+
         .love-story-heading {
             font-family: 'Brolimo', sans-serif;
+
+            @media (orientation: portrait) {
+                font-size: 4dvw;
+            }
+
+            @media (orientation: landscape) {
+                font-size: 2dvw;
+            }
         }
 
         .love-story-text {
@@ -550,6 +570,10 @@
     .thanks {
         text-align: center;
         background-color: #e5daca;
+
+        .pane-header {
+            font-family: Neoteric, sans-serif;
+        }
 
         div {
             padding-left: 5dvw;

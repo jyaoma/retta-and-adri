@@ -95,7 +95,7 @@ const RsvpPage = () => {
                     <div className="welcome-content">
                         <div className="subtitle">WE INVITE YOU TO CELEBRATE</div>
                         <div className="title">Claretta & Adrianus</div>
-                        <div className="subtitle">17 JANUARY 2026</div>
+                        <div className="subtitle">17th january 2026</div>
                     </div>
                 </div>
                 <div className="slide two-pane the-bride">
@@ -154,7 +154,7 @@ const RsvpPage = () => {
                         <div className="love-story-text">In flavors shared and adventures whispered,</div>
                         <div className="love-story-text">we felt the universe gently guiding our steps —</div>
                         <div className="love-story-text">two wandering souls drawn together</div>
-                        <div className="love-story-text">by something greater than chance</div>
+                        <div className="love-story-text">by something greater than chance.</div>
                     </div>
                     <Carousel
                         images={[require('../images/retta8.jpg'), require('../images/adri2.jpeg')]}
@@ -180,7 +180,7 @@ const RsvpPage = () => {
                         setLoadedItems={setLoadedItems}
                     />
                     <div className="story-three-caption story-caption">
-                        <div className="love-story-heading">Faster than time, brigher than stars</div>
+                        <div className="love-story-heading">Faster than time, brighter than stars</div>
                         <div className="love-story-text">Like a shooting star,</div>
                         <div className="love-story-text">our love surged forward with unstoppable light.</div>
                         <div className="love-story-text">The world blurred around us,</div>
@@ -208,7 +208,7 @@ const RsvpPage = () => {
                 </div>
                 <div className="slide two-pane location">
                     <div className="two-pane-left location-left">
-                        <div className="pane-header">celebrate with us at...</div>
+                        <div className="pane-header">celebrate with us at</div>
                         <div>St. Mary Immaculate Catholic Church</div>
                         <div>Jl. Satu Maret No.27 1, RT.2/RW.13,</div>
                         <div>Pegadungan, Kalideres, Jakarta Barat</div>
@@ -314,7 +314,7 @@ const RsvpPage = () => {
                 <div className="slide two-pane gift-info">
                     <div className="two-pane-left gift-info-left">
                         <div className="pane-header">Wedding Gift</div>
-                        <div>For friends and family who want to share a token of live to the bride and groom, kindly find the account details below:</div>
+                        <div>For friends and family who want to share a token of love to the bride and groom, kindly find the account details below:</div>
                         <div>&nbsp;</div>
                         <div>Bank Name: BCA</div>
                         <div>Gabriella Claretta Dwiputri</div>
@@ -365,7 +365,7 @@ const RsvpPage = () => {
                     </div>
                 </div>
                 <div className="slide one-pane thanks">
-                    <div className="pane-header">THANK YOU FOR BEING PART OF OUR JOURNEY</div>
+                    <div className="pane-header">Thank You For Being Part Of Our Journey</div>
                     <div>We look forward to sharing this special day with you. Your presence will be the greatest gift to us as we begin this new chapter together.</div>
                     <div className="title">Claretta & Adrianus</div>
                 </div>
@@ -376,7 +376,7 @@ const RsvpPage = () => {
                         <div className="overlay-content">
                             <div className="subtitle">WE INVITE YOU TO CELEBRATE</div>
                             <div className="title">Claretta & Adrianus</div>
-                            <div className="subtitle">17 JANUARY 2026</div>
+                            <div className="subtitle">17th january 2026</div>
                         </div>
                         <div className="loader-and-button">
                             {
