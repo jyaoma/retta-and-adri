@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import './rsvp.css';
 import {Button} from "@mui/material";
+import Carousel from "../components/carousel";
 
 const LandingPage = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -31,7 +32,7 @@ const LandingPage = () => {
                     </div>
                     <div className="welcome-content">
                         <div className="title">Claretta & Adrianus</div>
-                        <div className="subtitle">17 JANUARY 2026</div>
+                        <div className="subtitle">17th january 2026</div>
                     </div>
                 </div>
                 <div className="slide two-pane the-bride">
@@ -45,7 +46,7 @@ const LandingPage = () => {
                         <div className="pane-header">The Bride</div>
                         <div>Gabriella Clarissa Dwiputri</div>
                         <br/>
-                        <div>Second Daughter of:</div>
+                        <div>2nd Daughter of:</div>
                         <div>Mr. Husin Hassan</div>
                         <div>Mrs. Suzy Sulaiman</div>
                     </div>
@@ -55,7 +56,7 @@ const LandingPage = () => {
                         <div className="pane-header">The Groom</div>
                         <div>Adrianus Kurniawan</div>
                         <br/>
-                        <div>First Son of:</div>
+                        <div>1st Son of:</div>
                         <div>Mr. Paulus Sugiharto</div>
                         <div>Mrs. Angelina Sahbina</div>
                     </div>
@@ -66,76 +67,94 @@ const LandingPage = () => {
                         onLoad={() => setLoadedItems(x => x + 1)}
                     />
                 </div>
-                <div className="slide two-pane love-story">
-                    <img
-                        src={require('../images/retta1.jpg')}
-                        alt="Love story"
-                        className="two-pane-left love-story-left"
-                        onLoad={() => setLoadedItems(x => x + 1)}
-                    />
-                    <div className="two-pane-right love-story-right">
-                        <div className="pane-header">our love story</div>
-                        <div>My love, my dear, you're the gravy on my mashed potatoes,</div>
-                        <div>The extra cheese that overloads my nachos.</div>
-                        <div>You're the last pickle in the pickle jar,</div>
-                        <div>The french fry that fell in the car.</div>
-                        <br/>
-                        <div>I love you more than a donut with sprinkles,</div>
-                        <div>More than the sound of a soda can as it crinkles.</div>
-                        <div>You're the bacon on my breakfast plate,</div>
-                        <div>The perfect companion, my ultimate food-mate.</div>
-                        <br/>
-                        <div>My love for you is as deep as a pizza box,</div>
-                        <div>As endless as a bag of potato chips, all flavors and blocks.</div>
-                        <div>Some say love is a serious, somber affair,</div>
-                        <div>But for me, it's a feast, a food-filled dare.</div>
-                    </div>
+            </div>
+            <div className="slide two-pane love-story">
+                <img
+                    src={require('../images/retta1.jpg')}
+                    alt="Love story"
+                    className="two-pane-left love-story-left"
+                    onLoad={() => setLoadedItems(x => x + 1)}
+                />
+                <div className="two-pane-right love-story-right">
+                    <div className="pane-header">Our Love Story</div>
                 </div>
             </div>
             <div className="slide love-story-two">
-                <img
-                    src={require('../images/retta7.jpg')}
-                    alt="Love story"
+                <Carousel
+                    images={[require('../images/retta7.jpg'), require('../images/adri1.jpeg')]}
+                    alt="Love Story"
                     className="story-one-pic"
-                    onLoad={() => setLoadedItems(x => x + 1)}
+                    setLoadedItems={setLoadedItems}
                 />
-                <div className="story-one-caption">
-                    Lorem ipsum crackalackin black amet, sizzle adipiscing ass.
+                <div className="story-one-caption story-caption">
+                    <div className="love-story-heading">Where destiny first whispered</div>
+                    <div className="love-story-text">Our journey began where dreams and passions touched.</div>
+                    <div className="love-story-text">In flavors shared and adventures whispered,</div>
+                    <div className="love-story-text">we felt the universe gently guiding our steps —</div>
+                    <div className="love-story-text">two wandering souls drawn together</div>
+                    <div className="love-story-text">by something greater than chance.</div>
                 </div>
-                <img
-                    src={require('../images/retta8.jpg')}
-                    alt="Love story"
+                <Carousel
+                    images={[require('../images/retta8.jpg'), require('../images/adri2.jpeg')]}
+                    alt="Love Story"
                     className="story-two-pic"
-                    onLoad={() => setLoadedItems(x => x + 1)}
+                    setLoadedItems={setLoadedItems}
                 />
-                <div className="story-two-caption">
-                    Bizzle we gonne chung velizzle, pimpin' volutpizzle, suscipit brizzle, the bizzle vizzle, arcu.
+                <div className="story-two-caption story-caption">
+                    <div className="love-story-heading">Two colors, one canvas</div>
+                    <div className="love-story-text">Our Love revealed its colors through both harmony and contrast.</div>
+                    <div className="love-story-text">We learned to bend without breaking,</div>
+                    <div className="love-story-text">to listen, to give, and to grow.</div>
+                    <div className="love-story-text">Every challenge shaped us,</div>
+                    <div className="love-story-text">every difference deepened our bond —</div>
+                    <div className="love-story-text">until we became one story told in two voices.</div>
                 </div>
-                <img
-                    src={require('../images/retta9.jpg')}
-                    alt="Love story"
+            </div>
+            <div className="slide love-story-two">
+                <Carousel
+                    images={[require('../images/retta9.jpg'), require('../images/adri3.jpeg')]}
+                    alt="Love Story"
                     className="story-three-pic"
-                    onLoad={() => setLoadedItems(x => x + 1)}
+                    setLoadedItems={setLoadedItems}
                 />
-                <div className="story-three-caption">
-                    Pellentesque egizzle tortor. Sed erizzle.
+                <div className="story-three-caption story-caption">
+                    <div className="love-story-heading">Faster than time, brighter than stars</div>
+                    <div className="love-story-text">Like a shooting star,</div>
+                    <div className="love-story-text">our love surged forward with unstoppable light.</div>
+                    <div className="love-story-text">The world blurred around us,</div>
+                    <div className="love-story-text">but within us, clarity remained:</div>
+                    <div className="love-story-text">each trial, a flame that tempered us,</div>
+                    <div className="love-story-text">each joy, a spark that made us shine brighter.</div>
                 </div>
-                <img
-                    src={require('../images/retta10.jpg')}
-                    alt="Love story"
+                <Carousel
+                    images={[require('../images/retta10.jpg'), require('../images/adri4.jpeg')]}
+                    alt="Love Story"
                     className="story-four-pic"
-                    onLoad={() => setLoadedItems(x => x + 1)}
+                    setLoadedItems={setLoadedItems}
                 />
-                <div className="story-four-caption">
-                    Fusce izzle pizzle dapibizzle turpizzle tempizzle for sure.
+                <div className="story-four-caption story-caption">
+                    <div className="love-story-heading">Choosing eternity in simple joys</div>
+                    <div className="love-story-text">Here we stand, no longer two, but one.</div>
+                    <div className="love-story-text">Through shifting seasons, we've built a sanctuary for ourselves —</div>
+                    <div className="love-story-text">a place where love is steady, certain, and true.</div>
+                    <div className="love-story-text">And as we step into forever,</div>
+                    <div className="love-story-text">we carry a promise close to our hearts:</div>
+                    <div className="love-story-text">to live for today,</div>
+                    <div className="love-story-text">finding joy in the simplest things,</div>
+                    <div className="love-story-text">and happiness in every moment shared.</div>
                 </div>
+            </div>
+            <div className="slide one-pane thanks">
+                <div className="pane-header">Thank You For Being Part Of Our Journey</div>
+                <div>We look forward to sharing this special day with you. Your presence will be the greatest gift to us as we begin this new chapter together.</div>
+                <div className="title">Claretta & Adrianus</div>
             </div>
             {
                 showOverlay ? (
                     <div className="overlay">
                         <div className="overlay-content">
                             <div className="title">Claretta & Adrianus</div>
-                            <div className="subtitle">17 JANUARY 2026</div>
+                            <div className="subtitle">17th january 2026</div>
                         </div>
                         <div className="loader-and-button">
                             {
