@@ -32,7 +32,7 @@ const LandingPage = () => {
                     </div>
                     <div className="welcome-content">
                         <div className="title">Claretta & Adrianus</div>
-                        <div className="subtitle">17th january 2026</div>
+                        <div className="subtitle">17th JANUARY 2026</div>
                     </div>
                 </div>
                 <div className="slide two-pane the-bride">
@@ -154,7 +154,7 @@ const LandingPage = () => {
                     <div className="overlay">
                         <div className="overlay-content">
                             <div className="title">Claretta & Adrianus</div>
-                            <div className="subtitle">17th january 2026</div>
+                            <div className="subtitle">17th JANUARY 2026</div>
                         </div>
                         <div className="loader-and-button">
                             {
