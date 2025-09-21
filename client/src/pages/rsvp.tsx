@@ -81,6 +81,7 @@ const RsvpPage = () => {
                             <div className="welcome-group">
                                 <div className="subtitle">TO OUR HONORED GUEST{group.peopleMaximum >= 2 ? 'S' : ''}</div>
                                 <div className="title">{group.groupName}</div>
+                                <div className="subtitle">we apologize for any misspelled names.</div>
                                 {
                                     group.hasSubmitted ? (
                                         <div className="subtitle">
