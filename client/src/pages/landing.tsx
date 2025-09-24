@@ -7,7 +7,7 @@ const LandingPage = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
     // music
     // four images
-    const loaderItems = 9;
+    const loaderItems = 13;
     const [loadedItems, setLoadedItems] = useState<number>(0);
     const [showOverlay, setShowOverlay] = useState<boolean>(true);
 
