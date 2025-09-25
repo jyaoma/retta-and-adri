@@ -187,6 +187,23 @@
                     font-weight: bold;
                 }
             }
+
+            .name {
+                white-space: nowrap;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Open Sans', sans-serif;
+
+                @media (orientation: landscape) {
+                    font-size: 1dvw;
+                }
+
+                @media (orientation: portrait) {
+                    font-size: 3dvw;
+                    font-weight: bold;
+                }
+            }
         }
 
         .welcome-content {

@@ -25,6 +25,12 @@ export const updateRsvp: RequestHandler<
     Group
 > = async (req, res, next) => {
     try {
+        const rsvpCutoff = 1767632400000;
+        const isAfterCutoff = Date.now() > rsvpCutoff;
+        if (isAfterCutoff) {
+            res.sendStatus(400);
+            return;
+        }
         const { groupId } = req.params;
         if (req.body.groupId != groupId) {
             res.sendStatus(400);
