@@ -5,7 +5,6 @@ import groupsApi from '../api/groups';
 import './site.css';
 import {Group} from "../types/groups";
 import CheckIcon from '@mui/icons-material/Check';
-import Carousel from "../components/carousel";
 import Slide from "../components/slide";
 import {LoaderContextActions, useLoaderDispatchContext} from "../infra/loaderContext";
 import Overlay from "../components/sections/overlay";

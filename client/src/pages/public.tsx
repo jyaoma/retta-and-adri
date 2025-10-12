@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from 'react';
 import './site.css';
-import Carousel from "../components/carousel";
 import {LoaderContextActions, useLoaderDispatchContext} from "../infra/loaderContext";
 import Overlay from "../components/sections/overlay";
 import Slide from "../components/slide";
