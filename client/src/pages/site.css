@@ -128,32 +128,36 @@
             overflow: hidden;
 
             @media (orientation: portrait) {
-                transform: translate(-15%, 0);
-                height: 100dvh;
+                transform: translate(-32%, -19%);
+                width: 150dvw;
+                min-height: 140dvh;
             }
 
             @media (orientation: landscape) {
                 width: 100dvw;
-                height: 100dvh;
+                min-height: 100dvh;
+                transform: translate(0, -30%);
             }
         }
 
         .welcome-group {
             position: absolute;
             top: 8dvh;
-            left: 50dvw;
             transform: translate(-50%, 0%);
-            background-color: rgb(255, 253, 208);
-            border-radius: 100dvw;
-            box-shadow: 0 0 2dvh #333129;
-            backdrop-filter: blur(5dvh);
+            /*background-color: rgb(255, 253, 208);*/
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5dvw;
+            /*box-shadow: 0 0 2dvh #333129;*/
+            backdrop-filter: blur(0.5dvh);
 
             @media (orientation: portrait) {
                 padding: 4dvw 8dvw;
+                left: 50dvw;
             }
 
             @media (orientation: landscape) {
                 padding: 1dvw 4dvw;
+                left: 20dvw;
             }
 
             .title {
@@ -167,7 +171,7 @@
 
                 @media (orientation: landscape) {
                     font-size: 2.5dvw;
-                    width: 40dvw;
+                    width: 25dvw;
                 }
             }
 
@@ -209,22 +213,23 @@
         .welcome-content {
             position: absolute;
             bottom: 10dvh;
-            left: 50dvw;
             transform: translate(-50%, 0%);
-            background-color: rgb(255, 253, 208);
-            /*background-color: rgba(255, 251, 161, 0.5);*/
-            border-radius: 100dvw;
-            box-shadow: 0 0 2dvh #333129;
-            backdrop-filter: blur(5dvh);
+            /*background-color: rgb(255, 253, 208);*/
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5dvw;
+            /*box-shadow: 0 0 2dvh #333129;*/
+            backdrop-filter: blur(0.5dvh);
 
             @media (orientation: portrait) {
                 padding: 4dvw;
                 width: 68dvw;
+                left: 50dvw;
             }
 
             @media (orientation: landscape) {
                 padding: 1dvw;
                 width: 30dvw;
+                left: 20dvw;
             }
 
             .title {
@@ -617,6 +622,7 @@
     width: 100dvw;
     height: 100dvh;
     scroll-snap-align: start;
+    overflow: hidden;
 }
 
 .guest {

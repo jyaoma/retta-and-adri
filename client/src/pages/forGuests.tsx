@@ -64,7 +64,7 @@ const GuestsPage = () => {
                 <Slide className="welcome">
                     <img
                         className="welcome-image"
-                        src={require('../images/retta2.jpg')}
+                        src={require('../images/page1.jpg')}
                         alt="Welcome slide background"
                         onLoad={() => {
                             loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
