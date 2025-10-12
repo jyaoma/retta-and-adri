@@ -5,7 +5,7 @@ type CarouselProps = {
     images: string[],
     alt: string;
     className?: string;
-    setLoadedItems: (fun: (x: number) => number) => void;
+    incrementLoadedItems: () => void;
 }
 
 const Carousel = (props: CarouselProps) => {
@@ -60,7 +60,7 @@ const Carousel = (props: CarouselProps) => {
                     src={image}
                     alt={props.alt}
                     className={className}
-                    onLoad={() => props.setLoadedItems(x => x + 1)}
+                    onLoad={props.incrementLoadedItems}
                 />
             )
         })}

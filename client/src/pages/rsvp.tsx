@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import { useParams } from "react-router";
+import {useParams} from "react-router";
 import groupsApi from '../api/groups';
 
 import './rsvp.css';
@@ -8,15 +8,24 @@ import {Button, ButtonGroup, IconButton, TextField} from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 import CopyIcon from '@mui/icons-material/ContentCopy'
 import Carousel from "../components/carousel";
+import Slide from "../components/slide";
+import {LoaderContextActions, useLoaderDispatchContext} from "../infra/loaderContext";
+import Overlay from "../components/sections/overlay";
 
 const RsvpPage = () => {
     const rsvpCutoff = 1767632400000;
     const isAfterCutoff = Date.now() > rsvpCutoff;
-    const { groupId: nullableGroupId } = useParams();
+    const {groupId: nullableGroupId} = useParams();
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [group, setGroup] = useState<Group>({ groupId: '', groupName: '', peopleRsvped: -1, peopleMaximum: 1, hasSubmitted: false });
+    const [group, setGroup] = useState<Group>({
+        groupId: '',
+        groupName: '',
+        peopleRsvped: -1,
+        peopleMaximum: 1,
+        hasSubmitted: false
+    });
     const loaderItems = 15;
-    const [loadedItems, setLoadedItems] = useState<number>(0);
+    const loaderDispatch = useLoaderDispatchContext();
     const [showOverlay, setShowOverlay] = useState<boolean>(true);
     const [isSaveSuccess, setIsSaveSuccess] = useState<boolean>(false);
     const [isSaveError, setIsSaveError] = useState<boolean>(false);
@@ -24,10 +33,10 @@ const RsvpPage = () => {
     const groupId = nullableGroupId ?? '';
 
     const fetchGroup = useCallback(async () => {
-        const fetchedGroup = await groupsApi({ groupId });
+        const fetchedGroup = await groupsApi({groupId});
         setGroup(fetchedGroup);
     }, [groupId]);
-    
+
     const updateGroup = useCallback(async (updatedGroup: Group) => {
         try {
             const savedGroup = await groupsApi({
@@ -47,6 +56,14 @@ const RsvpPage = () => {
     useEffect(() => {
         fetchGroup();
     }, [fetchGroup]);
+
+    useEffect(() => {
+        loaderDispatch!({ type: LoaderContextActions.SET_ITEMS_TO_LOAD, data: loaderItems });
+    }, [loaderDispatch]);
+
+    const incrementLoadedItems = () => {
+        loaderDispatch!({ type: LoaderContextActions.INCREMENT_LOADED_ITEMS });
+    }
 
     const copyToClipboard = (textToCopy: string) => {
         // Use the 'out of viewport hidden text area' trick
@@ -69,32 +86,37 @@ const RsvpPage = () => {
         }
     }
 
+    const startMusic = () => {
+        audioRef.current!.play();
+    };
+
     return (
         <div className="site">
             <audio
                 ref={audioRef}
                 src={require('../music.mp3')}
-                onCanPlay={() => setLoadedItems(x => x + 1)}
+                onCanPlay={incrementLoadedItems}
                 loop
             />
             <div className="page">
-                <div className="slide one-pane welcome">
+                <Slide className="welcome">
                     <img
                         className="welcome-image"
                         src={require('../images/retta2.jpg')}
                         alt="Welcome slide background"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        onLoad={incrementLoadedItems}
                     />
                     {
                         group.groupName ? (
                             <div className="welcome-group">
-                                <div className="subtitle">TO OUR HONORED GUEST{group.peopleMaximum >= 2 ? 'S' : ''}</div>
+                                <div className="subtitle">TO OUR HONORED
+                                    GUEST{group.peopleMaximum >= 2 ? 'S' : ''}</div>
                                 <div className="title">{group.groupName}</div>
                                 <div className="names">we apologize for any misspelled names.</div>
                                 {
                                     group.hasSubmitted ? (
                                         <div className="subtitle">
-                                            <CheckIcon color="primary" fontSize="small" />
+                                            <CheckIcon color="primary" fontSize="small"/>
                                             <span>you have already rsvp'd</span>
                                         </div>
                                     ) : null
@@ -107,13 +129,13 @@ const RsvpPage = () => {
                         <div className="title">Claretta & Adrianus</div>
                         <div className="subtitle">17th JANUARY 2026</div>
                     </div>
-                </div>
-                <div className="slide two-pane the-bride">
+                </Slide>
+                <Slide className="the-bride" isTwoPane>
                     <img
                         src={require('../images/retta5.png')}
                         alt="the bride"
                         className="two-pane-left the-bride-left"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        onLoad={incrementLoadedItems}
                     />
                     <div className="two-pane-right the-bride-right">
                         <div className="pane-header">The Bride</div>
@@ -123,8 +145,8 @@ const RsvpPage = () => {
                         <div>Mr. Husin Hassan</div>
                         <div>Mrs. Suzy Sulaiman</div>
                     </div>
-                </div>
-                <div className="slide two-pane the-groom">
+                </Slide>
+                <Slide className="the-groom" isTwoPane>
                     <div className="two-pane-left the-groom-left">
                         <div className="pane-header">The Groom</div>
                         <div>Adrianus Kurniawan</div>
@@ -137,26 +159,26 @@ const RsvpPage = () => {
                         src={require('../images/retta6.jpg')}
                         alt="the groom"
                         className="two-pane-right the-groom-right"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        onLoad={incrementLoadedItems}
                     />
-                </div>
-                <div className="slide two-pane love-story">
+                </Slide>
+                <Slide className="love-story">
                     <img
                         src={require('../images/retta1.jpg')}
                         alt="Love story"
                         className="two-pane-left love-story-left"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        onLoad={incrementLoadedItems}
                     />
                     <div className="two-pane-right love-story-right">
                         <div className="pane-header">Our Love Story</div>
                     </div>
-                </div>
-                <div className="slide love-story-two">
+                </Slide>
+                <Slide className="love-story-two">
                     <Carousel
                         images={[require('../images/retta7.jpg'), require('../images/adri1.jpeg')]}
                         alt="Love Story"
                         className="story-one-pic"
-                        setLoadedItems={setLoadedItems}
+                        incrementLoadedItems={incrementLoadedItems}
                     />
                     <div className="story-one-caption story-caption">
                         <div className="love-story-heading">Where destiny first whispered</div>
@@ -170,24 +192,26 @@ const RsvpPage = () => {
                         images={[require('../images/retta8.jpg'), require('../images/adri2.jpeg')]}
                         alt="Love Story"
                         className="story-two-pic"
-                        setLoadedItems={setLoadedItems}
+                        incrementLoadedItems={incrementLoadedItems}
                     />
                     <div className="story-two-caption story-caption">
                         <div className="love-story-heading">Two colors, one canvas</div>
-                        <div className="love-story-text">Our Love revealed its colors through both harmony and contrast.</div>
+                        <div className="love-story-text">Our Love revealed its colors through both harmony and
+                            contrast.
+                        </div>
                         <div className="love-story-text">We learned to bend without breaking,</div>
                         <div className="love-story-text">to listen, to give, and to grow.</div>
                         <div className="love-story-text">Every challenge shaped us,</div>
                         <div className="love-story-text">every difference deepened our bond —</div>
                         <div className="love-story-text">until we became one story told in two voices.</div>
                     </div>
-                </div>
-                <div className="slide love-story-two">
+                </Slide>
+                <Slide className="love-story-two">
                     <Carousel
                         images={[require('../images/retta9.jpg'), require('../images/adri3.jpeg')]}
                         alt="Love Story"
                         className="story-three-pic"
-                        setLoadedItems={setLoadedItems}
+                        incrementLoadedItems={incrementLoadedItems}
                     />
                     <div className="story-three-caption story-caption">
                         <div className="love-story-heading">Faster than time, brighter than stars</div>
@@ -202,12 +226,15 @@ const RsvpPage = () => {
                         images={[require('../images/retta10.jpg'), require('../images/adri4.jpeg')]}
                         alt="Love Story"
                         className="story-four-pic"
-                        setLoadedItems={setLoadedItems}
+                        incrementLoadedItems={incrementLoadedItems}
                     />
                     <div className="story-four-caption story-caption">
                         <div className="love-story-heading">Choosing eternity in simple joys</div>
                         <div className="love-story-text">Here we stand, no longer two, but one.</div>
-                        <div className="love-story-text">Through shifting seasons, we've built a sanctuary for ourselves —</div>
+                        <div className="love-story-text">Through shifting seasons, we've built a sanctuary for
+                            ourselves
+                            —
+                        </div>
                         <div className="love-story-text">a place where love is steady, certain, and true.</div>
                         <div className="love-story-text">And as we step into forever,</div>
                         <div className="love-story-text">we carry a promise close to our hearts:</div>
@@ -215,8 +242,8 @@ const RsvpPage = () => {
                         <div className="love-story-text">finding joy in the simplest things,</div>
                         <div className="love-story-text">and happiness in every moment shared.</div>
                     </div>
-                </div>
-                <div className="slide two-pane location">
+                </Slide>
+                <Slide className="location" isTwoPane>
                     <div className="two-pane-left location-left">
                         <div className="pane-header">Celebrate With Us At</div>
                         <div>Chapel of St. Mary Immaculate Catholic Church</div>
@@ -230,13 +257,13 @@ const RsvpPage = () => {
                             height="100%" width="100%" style={{border: 0}}
                             referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                </div>
-                <div className="slide two-pane rsvp">
+                </Slide>
+                <Slide className="rsvp" isTwoPane>
                     <img
                         src={require('../images/retta3.jpg')}
                         alt="RSVP slide"
                         className="two-pane-left rsvp-left"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        onLoad={incrementLoadedItems}
                     />
                     <div className="two-pane-right rsvp-right">
                         <div className="pane-header">Your Attendance Is Truly A Gift</div>
@@ -267,7 +294,7 @@ const RsvpPage = () => {
                                                                 <Button
                                                                     variant={group.peopleRsvped === 1 ? "contained" : "outlined"}
                                                                     onClick={() => {
-                                                                        updateGroup({ ...group, peopleRsvped: 1 })
+                                                                        updateGroup({...group, peopleRsvped: 1})
                                                                     }}
                                                                 >
                                                                     Yes
@@ -275,7 +302,7 @@ const RsvpPage = () => {
                                                                 <Button
                                                                     variant={group.peopleRsvped === 0 ? "contained" : "outlined"}
                                                                     onClick={() => {
-                                                                        updateGroup({ ...group, peopleRsvped: 0 })
+                                                                        updateGroup({...group, peopleRsvped: 0})
                                                                     }}
                                                                 >
                                                                     No
@@ -294,12 +321,14 @@ const RsvpPage = () => {
                                                             {
                                                                 group.peopleRsvped === 0 ?
                                                                     <div>Your group will not be attending.</div> :
-                                                                    <div>You have RSVPed for {group.peopleRsvped} people.</div>
+                                                                    <div>You have RSVPed
+                                                                        for {group.peopleRsvped} people.</div>
                                                             }
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <div>How many people in your group will be attending?</div>
+                                                            <div>How many people in your group will be attending?
+                                                            </div>
                                                             <div>(max {group.peopleMaximum})</div>
                                                             <div>Please RSVP by Jan 5th 2026.</div>
                                                             <br/>
@@ -308,7 +337,10 @@ const RsvpPage = () => {
                                                                     disabled={group.peopleRsvped <= 0}
                                                                     variant="contained"
                                                                     onClick={() => {
-                                                                        updateGroup({ ...group, peopleRsvped: group.peopleRsvped - 1})
+                                                                        updateGroup({
+                                                                            ...group,
+                                                                            peopleRsvped: group.peopleRsvped - 1
+                                                                        })
                                                                     }}
                                                                 >
                                                                     -
@@ -333,7 +365,10 @@ const RsvpPage = () => {
                                                                     disabled={group.peopleRsvped >= group.peopleMaximum}
                                                                     variant="contained"
                                                                     onClick={() => {
-                                                                        updateGroup({ ...group, peopleRsvped: group.peopleRsvped + 1})
+                                                                        updateGroup({
+                                                                            ...group,
+                                                                            peopleRsvped: group.peopleRsvped + 1
+                                                                        })
                                                                     }}
                                                                 >
                                                                     +
@@ -354,7 +389,7 @@ const RsvpPage = () => {
                                     variant="contained"
                                     className="submit-button"
                                     onClick={() => {
-                                        updateGroup({ ...group, hasSubmitted: true })
+                                        updateGroup({...group, hasSubmitted: true})
                                     }}
                                 >
                                     submit
@@ -365,14 +400,17 @@ const RsvpPage = () => {
                             isSaveSuccess ? <div>Thank you for RSVPing!</div> : null
                         }
                         {
-                            isSaveError ? <div>Something went wrong with saving. Please try again later.</div> : null
+                            isSaveError ?
+                                <div>Something went wrong with saving. Please try again later.</div> : null
                         }
                     </div>
-                </div>
-                <div className="slide two-pane gift-info">
+                </Slide>
+                <Slide className="gift-info" isTwoPane>
                     <div className="two-pane-left gift-info-left">
                         <div className="pane-header">Wedding Gift</div>
-                        <div>For friends and family who want to share a token of love to the bride and groom, kindly find the account details below:</div>
+                        <div>For friends and family who want to share a token of love to the bride and groom, kindly
+                            find the account details below:
+                        </div>
                         <div>&nbsp;</div>
                         <div>Bank Name: BCA</div>
                         <div>Gabriella Claretta Dwiputri</div>
@@ -396,66 +434,42 @@ const RsvpPage = () => {
                         src={require('../images/retta4.jpg')}
                         alt="Gift info"
                         className="two-pane-right gift-info-right"
-                        onLoad={() => setLoadedItems(x => x + 1)}
+                        onLoad={incrementLoadedItems}
                     />
-                </div>
-                <div className="slide one-pane rules">
+                </Slide>
+                <Slide className="rules">
                     <div className="pane-header">Wedding Attire</div>
                     <div className="attire">We kindly encourage you NOT to wear BLUE, WHITE OR BLACK.</div>
                     <div className="attire">Be you and be as colorful as you want.</div>
                     <div className="palette">
-                        <div className="color color-1" />
-                        <div className="color color-2" />
-                        <div className="color color-3" />
-                        <div className="color color-4" />
-                        <div className="color color-5" />
-                        <div className="color color-6" />
-                        <div className="color color-7" />
-                        <div className="color color-8" />
-                        <div className="color color-9" />
-                        <div className="color color-10" />
-                        <div className="color color-11" />
-                        <div className="color color-12" />
-                        <div className="color color-13" />
-                        <div className="color color-14" />
-                        <div className="color color-15" />
-                        <div className="color color-16" />
+                        <div className="color color-1"/>
+                        <div className="color color-2"/>
+                        <div className="color color-3"/>
+                        <div className="color color-4"/>
+                        <div className="color color-5"/>
+                        <div className="color color-6"/>
+                        <div className="color color-7"/>
+                        <div className="color color-8"/>
+                        <div className="color color-9"/>
+                        <div className="color color-10"/>
+                        <div className="color color-11"/>
+                        <div className="color color-12"/>
+                        <div className="color color-13"/>
+                        <div className="color color-14"/>
+                        <div className="color color-15"/>
+                        <div className="color color-16"/>
                     </div>
-                </div>
-                <div className="slide one-pane thanks">
+                </Slide>
+                <Slide className="thanks">
                     <div className="pane-header">Thank You For Being Part Of Our Journey</div>
-                    <div>We look forward to sharing this special day with you. Your presence will be the greatest gift to us as we begin this new chapter together.</div>
-                    <div className="title">Claretta & Adrianus</div>
-                </div>
-            </div>
-            {
-                showOverlay ? (
-                    <div className="overlay">
-                        <div className="overlay-content">
-                            <div className="subtitle">WE INVITE YOU TO CELEBRATE</div>
-                            <div className="title">Claretta & Adrianus</div>
-                            <div className="subtitle">17th JANUARY 2026</div>
-                        </div>
-                        <div className="loader-and-button">
-                            {
-                                loadedItems !== loaderItems ? (
-                                    <div className="loader">
-                                        <div className="loading-bar" style={{ width: `${100 * loadedItems / loaderItems}%` }}></div>
-                                    </div>
-                                ) : (
-                                    <Button
-                                        variant="contained"
-                                        onClick={async () => {
-                                            setShowOverlay(false);
-                                            await audioRef.current!.play()
-                                        }}
-                                    >enter</Button>
-                                )
-                            }
-                        </div>
+                    <div>We look forward to sharing this special day with you. Your presence will be the greatest
+                        gift
+                        to us as we begin this new chapter together.
                     </div>
-                ) : null
-            }
+                    <div className="title">Claretta & Adrianus</div>
+                </Slide>
+            </div>
+            <Overlay {...{showOverlay, setShowOverlay, startMusic}} />
         </div>
     );
 }
