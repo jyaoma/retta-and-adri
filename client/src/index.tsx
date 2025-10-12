@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import {HashRouter, Routes, Route} from "react-router";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import LandingPage from './pages/landing';
-import RsvpPage from './pages/rsvp';
+import PublicPage from './pages/public';
+import GuestsPage from './pages/forGuests';
 import {LoaderProvider} from "./infra/loaderContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
@@ -12,8 +12,8 @@ root.render(
     <HashRouter>
         <LoaderProvider>
             <Routes>
-                <Route path="/" element={<LandingPage/>}/>
-                <Route path="/:groupId" element={<RsvpPage/>}/>
+                <Route path="/" element={<PublicPage/>}/>
+                <Route path="/:groupId" element={<GuestsPage/>}/>
             </Routes>
         </LoaderProvider>
     </HashRouter>

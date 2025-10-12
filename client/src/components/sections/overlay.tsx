@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button} from "@mui/material";
 import {useLoaderContext} from "../../infra/loaderContext";
 import PropTypes from "prop-types";
@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Overlay = (props: OverlayProps) => {
     const { itemsToLoad, loadedItems } = useLoaderContext();
 
-    const {showOverlay, setShowOverlay, startMusic} = props;
+    const [showOverlay, setShowOverlay] = useState<boolean>(true);
 
     return <>
         {
@@ -29,7 +29,7 @@ const Overlay = (props: OverlayProps) => {
                                     variant="contained"
                                     onClick={() => {
                                         setShowOverlay(false);
-                                        startMusic!();
+                                        props.startMusic!();
                                     }}
                                 >
                                     enter
@@ -44,14 +44,10 @@ const Overlay = (props: OverlayProps) => {
 }
 
 type OverlayProps = {
-    showOverlay: boolean;
-    setShowOverlay: (value: (((prevState: boolean) => boolean) | boolean)) => void;
     startMusic?: () => void;
 }
 
 Overlay.propTypes = {
-    showOverlay: PropTypes.bool,
-    setShowOverlay: PropTypes.func.isRequired,
     startMusic: PropTypes.func
 }
 
