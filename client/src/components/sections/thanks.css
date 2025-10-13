@@ -20,9 +20,9 @@
     .thanks-content {
         text-align: center;
         /*background-color: #e5daca;*/
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.4);
         border-radius: 5dvw;
-        backdrop-filter: blur(0.5dvh);
+        backdrop-filter: blur(1dvh);
         z-index: 2;
         position: absolute;
         top: 5dvh;
