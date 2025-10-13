@@ -43,7 +43,7 @@ const GuestsPage = () => {
     }, [fetchGroup]);
 
     useEffect(() => {
-        loaderDispatch!({ type: LoaderContextActions.SET_ITEMS_TO_LOAD, data: 25 });
+        loaderDispatch!({ type: LoaderContextActions.SET_ITEMS_TO_LOAD, data: 26 });
     }, [loaderDispatch]);
 
     const startMusic = () => {

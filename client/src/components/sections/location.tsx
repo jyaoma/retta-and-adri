@@ -1,6 +1,8 @@
 import React from 'react';
 import Slide from "../slide";
 
+import './location.css';
+
 const Location = () => (
     <Slide className="location" isTwoPane>
         <div className="two-pane-left location-left">

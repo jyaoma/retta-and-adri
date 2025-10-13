@@ -1,0 +1,28 @@
+.gift-info {
+    background-color: #F1C0B9;
+
+    .gift-info-left {
+        div {
+            padding-left: 5dvw;
+            padding-right: 5dvw;
+        }
+
+        br {
+            display: block;
+        }
+    }
+
+    .gift-info-right {
+        object-fit: cover;
+
+        @media (orientation: portrait) {
+            height: 50dvh;
+            width: 100dvw;
+        }
+
+        @media (orientation: landscape) {
+            width: 50dvw;
+            height: 100dvh;
+        }
+    }
+}

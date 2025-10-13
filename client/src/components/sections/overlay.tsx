@@ -3,6 +3,8 @@ import {Button} from "@mui/material";
 import {useLoaderContext} from "../../infra/loaderContext";
 import PropTypes from "prop-types";
 
+import './overlay.css';
+
 const Overlay = (props: OverlayProps) => {
     const { itemsToLoad, loadedItems } = useLoaderContext();
 

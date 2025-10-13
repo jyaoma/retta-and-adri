@@ -1,0 +1,72 @@
+.thanks {
+    position: relative;
+
+    .thanks-bg {
+        object-fit: cover;
+        object-position: center;
+
+        @media (orientation: landscape) {
+            width: 100dvw;
+            min-height: 100dvh;
+            transform: translate(0, -25%);
+        }
+
+        @media (orientation: portrait) {
+            width: 100dvw;
+            height: 100dvh;
+        }
+    }
+
+    .thanks-content {
+        text-align: center;
+        /*background-color: #e5daca;*/
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5dvw;
+        backdrop-filter: blur(0.5dvh);
+        z-index: 2;
+        position: absolute;
+        top: 5dvh;
+        left: 50dvw;
+        transform: translate(-50%, 0);
+        padding-bottom: 3dvh;
+
+        @media (orientation: portrait) {
+            width: 90dvw;
+        }
+
+        @media (orientation: landscape) {
+            width: 75dvw;
+        }
+
+        .pane-header {
+            font-family: Neoteric, sans-serif;
+
+            @media (orientation: portrait) {
+                font-size: 7dvw;
+            }
+
+            @media (orientation: landscape) {
+                font-size: 3dvw;
+            }
+        }
+
+        div {
+            padding-left: 5dvw;
+            padding-right: 5dvw;
+        }
+
+        .title {
+            font-family: 'Whispering Signature', serif;
+
+            @media (orientation: portrait) {
+                margin-top: 6dvw;
+                font-size: 6dvw;
+            }
+
+            @media (orientation: landscape) {
+                margin-top: 2.5dvw;
+                font-size: 2.5dvw;
+            }
+        }
+    }
+}

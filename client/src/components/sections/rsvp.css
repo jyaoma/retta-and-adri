@@ -1,0 +1,50 @@
+.rsvp {
+    background-color: #B2AC88;
+
+    .MuiButton-contained {
+        background-color: #594c04;
+        border-color: #594c04;
+        font-weight: bold;
+        font-size: 16pt;
+        padding: 0 5dvw;
+        text-transform: lowercase;
+    }
+
+    .MuiButton-outlined {
+        border-color: #594c04;
+        color: #594c04;
+        font-weight: bold;
+        font-size: 16pt;
+        padding: 0 5dvw;
+        text-transform: lowercase;
+    }
+
+    .submit-button {
+        margin-top: 5dvw;
+        font-size: 16pt;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Mui-disabled {
+        background-color: #595744;
+    }
+
+    .rsvp-left {
+        object-fit: cover;
+
+        @media (orientation: portrait) {
+            height: 50dvh;
+            width: 100dvw;
+        }
+
+        @media (orientation: landscape) {
+            width: 50dvw;
+            height: 100dvh;
+        }
+    }
+
+    .rsvp-controls {
+        max-width: 75%;
+    }
+}

@@ -6,6 +6,8 @@ import {Group} from "../../types/groups";
 import groupsApi from "../../api/groups";
 import PropTypes from "prop-types";
 
+import './rsvp.css';
+
 const Rsvp = (props: RsvpProps) => {
     const rsvpCutoff = 1767632400000;
     const isAfterCutoff = Date.now() > rsvpCutoff;
@@ -40,7 +42,7 @@ const Rsvp = (props: RsvpProps) => {
     return (
         <Slide className="rsvp" isTwoPane>
             <img
-                src={require('../../images/retta3.jpg')}
+                src={require('../../images/page8.jpg')}
                 alt="RSVP slide"
                 className="two-pane-left rsvp-left"
                 onLoad={() => {

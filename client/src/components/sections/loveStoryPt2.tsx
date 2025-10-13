@@ -18,8 +18,6 @@ const LoveStoryPt2 = () => {
         require('../../images/love-story-1/1.1.jpg'),
     ];
 
-    console.log(loveStory1Images);
-
     const loveStory2Images = [
         require('../../images/love-story-2/2.5.jpg'),
         require('../../images/love-story-2/2.4.jpg'),

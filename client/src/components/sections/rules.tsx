@@ -1,6 +1,8 @@
 import React from 'react';
 import Slide from "../slide";
 
+import './rules.css';
+
 const Rules = () => (
     <Slide className="rules">
         <div className="pane-header">Wedding Attire</div>

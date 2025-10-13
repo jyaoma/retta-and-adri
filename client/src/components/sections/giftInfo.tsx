@@ -2,6 +2,8 @@ import React from 'react';
 import {IconButton} from "@mui/material";
 import CopyIcon from '@mui/icons-material/ContentCopy';
 
+import './giftInfo.css';
+
 import {LoaderContextActions, useLoaderDispatchContext} from "../../infra/loaderContext";
 import Slide from "../slide";
 
@@ -56,7 +58,7 @@ const GiftInfo = () => {
                 </div>
             </div>
             <img
-                src={require('../../images/retta4.jpg')}
+                src={require('../../images/page9.jpg')}
                 alt="Gift info"
                 className="two-pane-right gift-info-right"
                 onLoad={() => {

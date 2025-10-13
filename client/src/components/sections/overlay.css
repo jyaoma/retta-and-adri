@@ -1,0 +1,69 @@
+.overlay {
+    background-color: rgba(31, 31, 31, 0.5);
+    backdrop-filter: blur(5dvh);
+    position: fixed;
+    display: block;
+    height: 100dvh;
+    width: 100dvw;
+    top: 0;
+    color: rgb(255, 253, 208);
+
+    .overlay-content {
+        transform: translate(0%, -50%);
+        position: fixed;
+        bottom: 50dvh;
+        text-align: center;
+        width: 100dvw;
+
+        .title {
+            font-family: 'Whispering Signature', serif;
+
+            @media (orientation: portrait) {
+                font-size: 7dvw;
+                padding: 4dvw 0;
+            }
+
+            @media (orientation: landscape) {
+                font-size: 2.5dvw;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Cailyne', sans-serif;
+
+            @media (orientation: portrait) {
+                font-size: 4dvw;
+            }
+
+            @media (orientation: landscape) {
+                font-size: 1dvw;
+            }
+        }
+    }
+
+    .loader-and-button {
+        position: fixed;
+        top: 70dvh;
+        width: 100dvw;
+        text-align: center;
+
+        .MuiButton-contained {
+            background-color: #807a4d;
+            border-color: #807a4d;
+            text-transform: lowercase;
+            font-weight: bold;
+        }
+
+        .loader {
+            border: 2px solid white;
+            width: 50dvw;
+            margin-left: auto;
+            margin-right: auto;
+
+            .loading-bar {
+                height: 5px;
+                background-color: white;
+            }
+        }
+    }
+}
