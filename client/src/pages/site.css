@@ -330,16 +330,6 @@
         }
     }
 
-    .the-bride {
-        .the-bride-left {
-            object-position: 0 0;
-        }
-
-        .the-bride-right {
-            background-color: #cdbdeb;
-        }
-    }
-
     .the-groom {
         .the-groom-left {
             background-color: #ffd7d6;

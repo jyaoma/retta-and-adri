@@ -1,0 +1,24 @@
+.the-bride {
+    .the-bride-left {
+        object-fit: cover;
+
+        object-position: 30% 55%;
+
+        @media (orientation: portrait) {
+            height: 50dvh;
+            width: 200dvw;
+            transform: translate(-45%, 0);
+        }
+
+        @media (orientation: landscape) {
+            width: 100dvw;
+            min-height: 100dvh;
+            transform: translate(-45%, 0);
+        }
+    }
+
+    .the-bride-right {
+        background-color: #cdbdeb;
+        z-index: 2;
+    }
+}
