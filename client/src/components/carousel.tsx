@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+
 import './carousel.css';
 
 type CarouselProps = {
@@ -7,6 +9,7 @@ type CarouselProps = {
     className?: string;
     incrementLoadedItems: () => void;
 }
+
 
 const Carousel = (props: CarouselProps) => {
     const numberOfImages = props.images.length;
@@ -27,7 +30,7 @@ const Carousel = (props: CarouselProps) => {
                     if (timer === 3) {
                         setTransitionIndex(x => x - 1);
                     }
-                } else if (timer >= 4) {
+                } else if (timer >= 4 || (visibleImageIndex === 1 && timer >= 3)) {
                     if (visibleImageIndex > 0) {
                         setVisibleImageIndex(x => x - 1)
                         setTimer(0);
@@ -40,7 +43,7 @@ const Carousel = (props: CarouselProps) => {
                 }
             }
         }, 1000);
-    }, [timer, isTransitionVisible]);
+    }, [timer, isTransitionVisible, numberOfImages]);
 
     return <div className={`carousel ${props.className || ''}`}>
         {props.images.map((image, i) => {

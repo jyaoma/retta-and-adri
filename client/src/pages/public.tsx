@@ -15,7 +15,7 @@ const PublicPage = () => {
     const loaderDispatch = useLoaderDispatchContext();
 
     useEffect(() => {
-        loaderDispatch!({type: 'SET_ITEMS_TO_LOAD', data: 13});
+        loaderDispatch!({ type: 'SET_ITEMS_TO_LOAD', data: 23 });
     }, [loaderDispatch]);
 
     const startMusic = () => {

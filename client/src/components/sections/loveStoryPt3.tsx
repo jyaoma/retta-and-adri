@@ -3,13 +3,27 @@ import {LoaderContextActions, useLoaderDispatchContext} from "../../infra/loader
 import Carousel from "../carousel";
 import Slide from "../slide";
 
+import './loveStoryPt2+3.css';
+
 const LoveStoryPt3 = () => {
     const loaderDispatch = useLoaderDispatchContext();
 
+    const loveStory3Images = [
+        require('../../images/love-story-3/3.5.jpg'),
+        require('../../images/love-story-3/3.4.jpg'),
+        require('../../images/love-story-3/3.3.jpg'),
+        require('../../images/love-story-3/3.2.jpg'),
+        require('../../images/love-story-3/3.1.jpg'),
+    ];
+
+    const loveStory4Images = [
+        require('../../images/love-story-4/4.1.jpg'),
+    ];
+
     return (
-        <Slide className="love-story-two">
+        <Slide className="love-story-three">
             <Carousel
-                images={[require('../../images/retta9.jpg'), require('../../images/adri3.jpeg')]}
+                images={loveStory3Images}
                 alt="Love Story"
                 className="story-three-pic"
                 incrementLoadedItems={() => {
@@ -26,7 +40,7 @@ const LoveStoryPt3 = () => {
                 <div className="love-story-text">each joy, a spark that made us shine brighter.</div>
             </div>
             <Carousel
-                images={[require('../../images/retta10.jpg'), require('../../images/adri4.jpeg')]}
+                images={loveStory4Images}
                 alt="Love Story"
                 className="story-four-pic"
                 incrementLoadedItems={() => {
@@ -35,7 +49,7 @@ const LoveStoryPt3 = () => {
             />
             <div className="story-four-caption story-caption">
                 <div className="love-story-heading">Choosing eternity in simple joys</div>
-                <div className="love-story-text">Here we stand, no longer two, but one.</div>
+                <div className="love-story-text">Herem we stand, no longer two, but one.</div>
                 <div className="love-story-text">Through shifting seasons, we've built a sanctuary for
                     ourselves
                     —
