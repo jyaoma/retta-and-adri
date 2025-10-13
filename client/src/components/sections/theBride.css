@@ -1,7 +1,6 @@
 .the-bride {
     .the-bride-left {
         object-fit: cover;
-
         object-position: 30% 55%;
 
         @media (orientation: portrait) {

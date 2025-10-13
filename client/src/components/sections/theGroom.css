@@ -1,0 +1,23 @@
+.the-groom {
+    .the-groom-left {
+        background-color: #ffd7d6;
+        z-index: 2;
+    }
+
+    .the-groom-right {
+        object-fit: cover;
+        object-position: 30% 40%;
+
+        @media (orientation: portrait) {
+            height: 50dvh;
+            width: 160dvw;
+            transform: translate(-22%, 0);
+        }
+
+        @media (orientation: landscape) {
+            width: 80dvw;
+            min-height: 100dvh;
+            transform: translate(-22%, 0);
+        }
+    }
+}

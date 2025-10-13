@@ -2,6 +2,8 @@ import React from 'react';
 import {LoaderContextActions, useLoaderDispatchContext} from "../../infra/loaderContext";
 import Slide from "../slide";
 
+import './theGroom.css';
+
 const TheGroom = () => {
     const loaderDispatch = useLoaderDispatchContext();
 
@@ -15,14 +17,16 @@ const TheGroom = () => {
                 <div>Mr. Paulus Sugiharto</div>
                 <div>Mrs. Angelina Sahbina</div>
             </div>
-            <img
-                src={require('../../images/retta6.jpg')}
-                alt="The Groom"
-                className="two-pane-right the-groom-right"
-                onLoad={() => {
-                    loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
-                }}
-            />
+            <div className="two-pane-right">
+                <img
+                    src={require('../../images/page3.jpg')}
+                    alt="The Groom"
+                    className="the-groom-right"
+                    onLoad={() => {
+                        loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
+                    }}
+                />
+            </div>
         </Slide>
     );
 };
