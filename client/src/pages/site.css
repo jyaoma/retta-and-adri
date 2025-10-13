@@ -128,7 +128,7 @@
             overflow: hidden;
 
             @media (orientation: portrait) {
-                transform: translate(-32%, -19%);
+                transform: translate(-32%, -15%);
                 width: 150dvw;
                 min-height: 140dvh;
             }
@@ -136,7 +136,7 @@
             @media (orientation: landscape) {
                 width: 100dvw;
                 min-height: 100dvh;
-                transform: translate(0, -30%);
+                transform: translate(0, -35%);
             }
         }
 
@@ -326,25 +326,6 @@
 
             &.location-right {
                 padding: 0;
-            }
-        }
-    }
-
-    .love-story {
-        background-color: #89CFF0;
-        font-family: 'Open Sans', sans-serif;
-
-        .love-story-left {
-            object-fit: cover;
-
-            @media (orientation: portrait) {
-                height: 50dvh;
-                width: 100dvw;
-            }
-
-            @media (orientation: landscape) {
-                width: 50dvw;
-                height: 100dvh;
             }
         }
     }

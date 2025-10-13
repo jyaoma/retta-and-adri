@@ -1,0 +1,22 @@
+.love-story {
+    background-color: #89CFF0;
+    font-family: 'Open Sans', sans-serif;
+
+    .love-story-left {
+        object-fit: cover;
+
+        @media (orientation: portrait) {
+            height: 50dvh;
+            width: 100dvw;
+        }
+
+        @media (orientation: landscape) {
+            width: 50dvw;
+            height: 100dvh;
+        }
+    }
+
+    .love-story-right {
+        z-index: 2;
+    }
+}
