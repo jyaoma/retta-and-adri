@@ -1,0 +1,23 @@
+.thanks-alt {
+    .two-pane-left {
+        padding: 0 5vw;
+        box-sizing: border-box;
+
+        .pane-header {
+            font-family: Neoteric, sans-serif;
+
+            @media (orientation: landscape) {
+                font-size: 3dvw;
+            }
+        }
+
+        .title {
+            font-family: 'Whispering Signature', serif;
+
+            @media (orientation: landscape) {
+                margin-top: 2.5dvw;
+                font-size: 2.5dvw;
+            }
+        }
+    }
+}

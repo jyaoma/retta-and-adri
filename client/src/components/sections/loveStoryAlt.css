@@ -1,0 +1,89 @@
+.love-story-two-alt {
+    background-color: #dbe098;
+
+    .two-pane-left, .two-pane-right {
+        position: relative;
+    }
+
+    @media (orientation: portrait) {
+        .two-pane-left {
+            margin-bottom: 2vw;
+        }
+    }
+
+    .story-caption {
+        background-color: rgba(219, 224, 152, 0.8);
+    }
+}
+
+.love-story-three-alt {
+    background-color: #8e715b;
+
+    .two-pane-left, .two-pane-right {
+        position: relative;
+    }
+
+    .story-caption {
+        background-color: rgba(142, 113, 91, 0.8);
+    }
+}
+
+.love-story-two-alt, .love-story-three-alt {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+
+    @media (orientation: portrait) {
+        font-size: 3dvw;
+    }
+
+    @media (orientation: landscape) {
+        font-size: 1dvw;
+    }
+
+    img {
+        object-fit: contain;
+        object-position: center;
+        /*left: 0;*/
+
+        min-width: 100%;
+        margin-right: auto;
+        height: 100%;
+    }
+
+    .story-caption {
+        position: absolute;
+        text-align: left;
+
+        @media (orientation: portrait) {
+            width: 84%;
+            padding: 3%;
+            right: 5vw;
+            bottom: 5vw;
+            border-radius: 5vw;
+        }
+
+        @media (orientation: landscape) {
+            width: 84%;
+            padding: 3%;
+            right: 5vh;
+            bottom: 5vh;
+            border-radius: 2vh;
+        }
+    }
+
+    .love-story-heading {
+        font-family: 'Brolimo', sans-serif;
+
+        @media (orientation: portrait) {
+            font-size: 4dvw;
+        }
+
+        @media (orientation: landscape) {
+            font-size: 2dvw;
+        }
+    }
+
+    .love-story-text {
+        font-family: 'Open Sans', sans-serif;
+    }
+}

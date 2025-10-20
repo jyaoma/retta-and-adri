@@ -4,11 +4,15 @@ import {LoaderContextActions, useLoaderDispatchContext} from "../infra/loaderCon
 import Overlay from "../components/sections/overlay";
 import Slide from "../components/slide";
 import Thanks from "../components/sections/thanks";
-import LoveStoryPt3 from "../components/sections/loveStoryPt3";
-import LoveStoryPt2 from "../components/sections/loveStoryPt2";
 import LoveStoryPt1 from "../components/sections/loveStoryPt1";
+import LoveStoryPt2 from "../components/sections/loveStoryPt2";
+import LoveStoryPt2Alt from "../components/sections/loveStoryPt2Alt";
+import LoveStoryPt3 from "../components/sections/loveStoryPt3";
 import TheGroom from "../components/sections/theGroom";
 import TheBride from "../components/sections/theBride";
+import { PortraitOnly, LandscapeOnly } from "../components/orientation-helper";
+import LoveStoryPt3Alt from "../components/sections/loveStoryPt3Alt";
+import ThanksAlt from "../components/sections/thanksAlt";
 
 const PublicPage = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -53,9 +57,16 @@ const PublicPage = () => {
                 <TheBride />
                 <TheGroom />
                 <LoveStoryPt1 />
-                <LoveStoryPt2 />
-                <LoveStoryPt3 />
-                <Thanks />
+                <PortraitOnly>
+                    <LoveStoryPt2Alt />
+                    <LoveStoryPt3Alt />
+                    <Thanks />
+                </PortraitOnly>
+                <LandscapeOnly>
+                    <LoveStoryPt2 />
+                    <LoveStoryPt3 />
+                    <ThanksAlt />
+                </LandscapeOnly>
             </div>
             <Overlay {...{startMusic}} />
         </div>

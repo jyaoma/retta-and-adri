@@ -18,6 +18,10 @@ import LoveStoryPt2 from "../components/sections/loveStoryPt2";
 import LoveStoryPt1 from "../components/sections/loveStoryPt1";
 import TheGroom from "../components/sections/theGroom";
 import TheBride from "../components/sections/theBride";
+import {LandscapeOnly, PortraitOnly} from "../components/orientation-helper";
+import LoveStoryPt2Alt from "../components/sections/loveStoryPt2Alt";
+import LoveStoryPt3Alt from "../components/sections/loveStoryPt3Alt";
+import ThanksAlt from "../components/sections/thanksAlt";
 
 const GuestsPage = () => {
     const {groupId: nullableGroupId} = useParams();
@@ -97,13 +101,24 @@ const GuestsPage = () => {
                 <TheBride />
                 <TheGroom />
                 <LoveStoryPt1 />
-                <LoveStoryPt2 />
-                <LoveStoryPt3 />
+                <PortraitOnly>
+                    <LoveStoryPt2Alt />
+                    <LoveStoryPt3Alt />
+                </PortraitOnly>
+                <LandscapeOnly>
+                    <LoveStoryPt2 />
+                    <LoveStoryPt3 />
+                </LandscapeOnly>
                 <Location />
                 <Rsvp {...{groupId, group, setGroup}} />
                 <GiftInfo />
                 <Rules />
-                <Thanks />
+                <PortraitOnly>
+                    <Thanks />
+                </PortraitOnly>
+                <LandscapeOnly>
+                    <ThanksAlt />
+                </LandscapeOnly>
             </div>
             <Overlay {...{startMusic}} />
         </div>

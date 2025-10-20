@@ -20,18 +20,21 @@
     .thanks-content {
         text-align: center;
         /*background-color: #e5daca;*/
-        background-color: rgba(255, 255, 255, 0.4);
-        border-radius: 5dvw;
-        backdrop-filter: blur(1dvh);
+        /*background-color: rgba(255, 255, 255, 0.4);*/
+        /*border-radius: 5dvw;*/
+        /*backdrop-filter: blur(1dvh);*/
+        background: linear-gradient(to bottom, white, white 20%, rgba(255, 255, 255, 0));
         z-index: 2;
         position: absolute;
-        top: 5dvh;
+        padding-top: 5dvh;
+        top: 0;
         left: 50dvw;
         transform: translate(-50%, 0);
         padding-bottom: 3dvh;
 
         @media (orientation: portrait) {
-            width: 90dvw;
+            width: 100dvw;
+            height: 40dvh;
         }
 
         @media (orientation: landscape) {

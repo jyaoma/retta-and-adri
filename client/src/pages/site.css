@@ -271,6 +271,7 @@
     height: 100svh;
     scroll-snap-align: start;
     overflow: hidden;
+    content-visibility: visible;
 }
 
 .guest {
