@@ -63,7 +63,7 @@
             overflow: hidden;
 
             @media (orientation: portrait) {
-                transform: translate(-32%, -15%);
+                transform: translate(-30%, -15%);
                 width: 150dvw;
                 min-height: 140dvh;
             }
