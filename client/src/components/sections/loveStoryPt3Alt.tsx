@@ -51,7 +51,7 @@ const LoveStoryPt3Alt = () => {
                     }}
                 />
                 <div className="story-four-caption story-caption">
-                    <div className="love-story-heading">Choosing eternity in simple joys</div>
+                    <div className="love-story-heading">Choosing eternity<br/>in simple joys</div>
                     <div className="love-story-text">Here we stand, no longer two, but one.</div>
                     <div className="love-story-text">Through shifting seasons, we've built a sanctuary for
                         ourselves

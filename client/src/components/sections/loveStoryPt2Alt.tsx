@@ -62,7 +62,7 @@ const LoveStoryPt2Alt = () => {
                     <div className="love-story-text">We learned to bend without breaking,</div>
                     <div className="love-story-text">to listen, to give, and to grow.</div>
                     <div className="love-story-text">Every challenge shaped us,</div>
-                    <div className="love-story-mmtext">every difference deepened our bond —</div>
+                    <div className="love-story-text">every difference deepened our bond —</div>
                     <div className="love-story-text">until we became one story told in two voices.</div>
                 </div>
             </div>
