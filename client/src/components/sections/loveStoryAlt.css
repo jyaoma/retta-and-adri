@@ -11,7 +11,7 @@
         }
     }
 
-    .story-caption {
+    .story-caption, .image-scroll-arrow-container {
         background-color: rgba(219, 224, 152, 0.8);
     }
 }
@@ -25,7 +25,7 @@
 
     .two-pane-left {
         @media (orientation: portrait) {
-            .story-caption {
+            .story-caption, .image-scroll-arrow-container {
                 background-color: rgba(142, 113, 91, 0.8);
             }
         }

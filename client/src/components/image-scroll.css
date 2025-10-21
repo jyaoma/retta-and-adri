@@ -48,3 +48,27 @@
         }
     }
 }
+
+.image-scroll-arrow-container {
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    text-align: center;
+    right: 5vw;
+    top: 35%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 0.25s ease-out;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.image-scroll-arrow-container.hidden {
+    opacity: 0;
+}
