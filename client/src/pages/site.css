@@ -110,6 +110,18 @@
                 }
             }
 
+            .names {
+                @media (orientation: portrait) {
+                    font-size: 3dvw;
+                }
+
+                @media (orientation: landscape) {
+                    font-size: 1.1dvw;
+                }
+
+                font-style: italic;
+            }
+
             .subtitle {
                 white-space: nowrap;
                 display: flex;
