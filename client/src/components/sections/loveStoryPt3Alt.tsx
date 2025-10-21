@@ -5,6 +5,7 @@ import {LoaderContextActions, useLoaderDispatchContext} from "../../infra/loader
 
 import './loveStoryAlt.css';
 import ImageScroll from "../image-scroll";
+import Carousel from "../carousel";
 
 const LoveStoryPt3Alt = () => {
     const loaderDispatch = useLoaderDispatchContext();
@@ -42,7 +43,7 @@ const LoveStoryPt3Alt = () => {
                 </div>
             </div>
             <div className="two-pane-right">
-                <ImageScroll
+                <Carousel
                     images={loveStory4Images}
                     alt="Love Story"
                     incrementLoadedItems={() => {

@@ -23,8 +23,49 @@
         position: relative;
     }
 
-    .story-caption {
-        background-color: rgba(142, 113, 91, 0.8);
+    .two-pane-left {
+        @media (orientation: portrait) {
+            .story-caption {
+                background-color: rgba(142, 113, 91, 0.8);
+            }
+        }
+    }
+
+    .two-pane-right {
+        @media (orientation: portrait) {
+            display: flex;
+            flex-direction: row !important;
+
+            .carousel {
+                @media (orientation: portrait) {
+                    min-height: 50dvh;
+                    max-height: 50dvh;
+                    width: 50dvw;
+
+                    img {
+                        object-fit: cover;
+                        object-position: center;
+                        /*left: 0;*/
+
+                        width: 50vw;
+                        /*margin-right: auto;*/
+                        height: calc(50dvh - 2vw);
+                        margin-top: 2vw;
+                    }
+                }
+            }
+
+            .story-caption {
+                position: relative;
+                text-align: left;
+                bottom: 0;
+                right: 0;
+                padding: 5dvw;
+                box-sizing: border-box;
+                width: 50vw;
+                z-index: 2;
+            }
+        }
     }
 }
 
