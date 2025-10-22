@@ -29,7 +29,8 @@
 
         @media (orientation: landscape) {
             width: 80dvw;
-            min-height: 100dvh;
+            height: 100dvh;
+            object-position: 50% 35%;
             transform: translate(-22%, 0);
         }
     }

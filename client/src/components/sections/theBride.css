@@ -13,7 +13,8 @@
 
         @media (orientation: landscape) {
             width: 100dvw;
-            min-height: 100dvh;
+            height: 100dvh;
+            object-position: 50% 45%;
             transform: translate(-45%, 0);
         }
     }

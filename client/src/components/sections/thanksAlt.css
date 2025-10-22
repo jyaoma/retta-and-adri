@@ -20,4 +20,10 @@
             }
         }
     }
+
+    .thanks-bg {
+        object-position: 50% 75%;
+        object-fit: cover;
+        height: 100dvh;
+    }
 }
