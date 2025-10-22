@@ -13,6 +13,8 @@ import TheBride from "../components/sections/theBride";
 import { PortraitOnly, LandscapeOnly } from "../components/orientation-helper";
 import LoveStoryPt3Alt from "../components/sections/loveStoryPt3Alt";
 import ThanksAlt from "../components/sections/thanksAlt";
+import TheBrideAndGroom from "../components/sections/theBrideAndGroom";
+import LoveStoryPt1Alt from "../components/sections/loveStoryPt1Alt";
 
 const PublicPage = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -54,15 +56,17 @@ const PublicPage = () => {
                         <div className="subtitle">17th JANUARY 2026</div>
                     </div>
                 </Slide>
-                <TheBride />
-                <TheGroom />
-                <LoveStoryPt1 />
                 <PortraitOnly>
+                    <TheBride />
+                    <TheGroom />
+                    <LoveStoryPt1 />
                     <LoveStoryPt2Alt />
                     <LoveStoryPt3Alt />
                     <Thanks />
                 </PortraitOnly>
                 <LandscapeOnly>
+                    <TheBrideAndGroom />
+                    <LoveStoryPt1Alt />
                     <LoveStoryPt2 />
                     <LoveStoryPt3 />
                     <ThanksAlt />

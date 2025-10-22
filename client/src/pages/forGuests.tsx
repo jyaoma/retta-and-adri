@@ -22,6 +22,8 @@ import {LandscapeOnly, PortraitOnly} from "../components/orientation-helper";
 import LoveStoryPt2Alt from "../components/sections/loveStoryPt2Alt";
 import LoveStoryPt3Alt from "../components/sections/loveStoryPt3Alt";
 import ThanksAlt from "../components/sections/thanksAlt";
+import TheBrideAndGroom from "../components/sections/theBrideAndGroom";
+import LoveStoryPt1Alt from "../components/sections/loveStoryPt1Alt";
 
 const GuestsPage = () => {
     const {groupId: nullableGroupId} = useParams();
@@ -98,14 +100,16 @@ const GuestsPage = () => {
                         <div className="subtitle">17th JANUARY 2026</div>
                     </div>
                 </Slide>
-                <TheBride />
-                <TheGroom />
-                <LoveStoryPt1 />
                 <PortraitOnly>
+                    <TheBride />
+                    <TheGroom />
+                    <LoveStoryPt1 />
                     <LoveStoryPt2Alt />
                     <LoveStoryPt3Alt />
                 </PortraitOnly>
                 <LandscapeOnly>
+                    <TheBrideAndGroom />
+                    <LoveStoryPt1Alt />
                     <LoveStoryPt2 />
                     <LoveStoryPt3 />
                 </LandscapeOnly>

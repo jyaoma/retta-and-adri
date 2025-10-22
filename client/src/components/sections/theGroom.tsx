@@ -4,30 +4,36 @@ import Slide from "../slide";
 
 import './theGroom.css';
 
-const TheGroom = () => {
+const TheGroom = () => (
+    <Slide className="the-groom">
+        <TheGroomContent />
+    </Slide>
+)
+
+export const TheGroomContent = () => {
     const loaderDispatch = useLoaderDispatchContext();
 
     return (
-        <Slide className="the-groom" isTwoPane>
-            <div className="two-pane-left the-groom-left">
-                <div className="pane-header">The Groom</div>
-                <div>Adrianus Kurniawan</div>
-                <br/>
-                <div>1st Son of:</div>
-                <div>Mr. Paulus Sugiharto</div>
-                <div>Mrs. Angelina Sahbina</div>
+        <>
+            <div className="the-groom-left">
+                <div className="the-groom-left-text">
+                    <div className="pane-header">The Groom</div>
+                    <div>Adrianus Kurniawan</div>
+                    <br/>
+                    <div>1st Son of:</div>
+                    <div>Mr. Paulus Sugiharto</div>
+                    <div>Mrs. Angelina Sahbina</div>`
+                </div>
             </div>
-            <div className="two-pane-right">
-                <img
-                    src={require('../../images/page3.jpg')}
-                    alt="The Groom"
-                    className="the-groom-right"
-                    onLoad={() => {
-                        loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
-                    }}
-                />
-            </div>
-        </Slide>
+            <img
+                src={require('../../images/page3.jpg')}
+                alt="The Groom"
+                className="the-groom-right"
+                onLoad={() => {
+                    loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
+                }}
+            />
+        </>
     );
 };
 
