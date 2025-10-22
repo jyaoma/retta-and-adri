@@ -2,57 +2,42 @@
     position: relative;
     height: 100%;
     width: 100%;
-
-    @media (orientation: portrait) {
-        overflow-x: scroll;
-    }
-
-    @media (orientation: landscape) {
-        overflow-y: scroll;
-    }
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .image-scroll::-webkit-scrollbar {
-    display: none;
+    @media (orientation: portrait) {
+        display: none;
+    }
 }
-
 .image-scroll-inner {
     position: absolute;
     display: flex;
-
-    @media (orientation: portrait) {
-        flex-direction: row;
-        min-height: 100%;
-        max-height: 100%;
-        min-width: 1px;
-        gap: 2vw;
-    }
-
-    @media (orientation: landscape) {
-        flex-direction: column-reverse;
-        gap: 1vh;
-    }
+    flex-direction: row;
+    min-height: 100%;
+    max-height: 100%;
+    min-width: 1px;
+    gap: 10px;
 
     img {
         object-fit: contain;
+        min-width: 1px;
 
         @media (orientation: portrait) {
             min-height: 50dvh;
             max-height: 50dvh;
-            min-width: 1px;
         }
 
         @media (orientation: landscape) {
-            height: auto;
-            width: 100%;
+            min-height: 100dvh;
+            max-height: 100dvh;
         }
     }
 }
 
 .image-scroll-arrow-container {
     position: absolute;
-    width: 8vw;
-    height: 8vw;
     border-radius: 50%;
     text-align: center;
     right: 5vw;
@@ -61,6 +46,8 @@
     box-sizing: border-box;
     opacity: 1;
     transition: opacity 0.25s ease-out;
+    width: 50px;
+    height: 50px;
 
     svg {
         position: absolute;

@@ -67,8 +67,8 @@ const PublicPage = () => {
                 <LandscapeOnly>
                     <TheBrideAndGroom />
                     <LoveStoryPt1Alt />
-                    <LoveStoryPt2 />
-                    <LoveStoryPt3 />
+                    <LoveStoryPt2Alt />
+                    <LoveStoryPt3Alt />
                     <ThanksAlt />
                 </LandscapeOnly>
             </div>

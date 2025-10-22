@@ -110,8 +110,8 @@ const GuestsPage = () => {
                 <LandscapeOnly>
                     <TheBrideAndGroom />
                     <LoveStoryPt1Alt />
-                    <LoveStoryPt2 />
-                    <LoveStoryPt3 />
+                    <LoveStoryPt2Alt />
+                    <LoveStoryPt3Alt />
                 </LandscapeOnly>
                 <Location />
                 <Rsvp {...{groupId, group, setGroup}} />
