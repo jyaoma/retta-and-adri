@@ -21,7 +21,7 @@ const Overlay = (props: OverlayProps) => {
                     </div>
                     <div className="loader-and-button">
                         {
-                            loadedItems !== itemsToLoad ? (
+                            loadedItems < itemsToLoad ? (
                                 <div className="loader">
                                     <div className="loading-bar"
                                          style={{width: `${100 * loadedItems / itemsToLoad}%`}}></div>
