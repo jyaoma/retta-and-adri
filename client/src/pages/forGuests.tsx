@@ -81,7 +81,7 @@ const GuestsPage = () => {
                             <div className="welcome-group">
                                 <div className="subtitle">TO OUR HONORED
                                     GUEST{group.peopleMaximum >= 2 ? 'S' : ''}</div>
-                                <div className="title">{group.groupName}</div>
+                                <div className="title">{group.groupName.split('\\n').map((line, i) => <div key={i}>{line}</div>)}</div>
                                 <div className="names">we apologize for any misspelled names.</div>
                                 {
                                     group.hasSubmitted ? (
