@@ -10,6 +10,8 @@ const Location = () => (
             <div>Chapel of St. Mary Immaculate Catholic Church</div>
             <div>Jl. Satu Maret No.27 1, RT.2/RW.13,</div>
             <div>Pegadungan, Kalideres, Jakarta Barat</div>
+            <div>&nbsp;</div>
+            <div>The Holy Matrimony starts at 10.30 AM</div>
         </div>
         <div className="two-pane-right location-right">
             <iframe
