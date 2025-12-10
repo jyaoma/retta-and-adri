@@ -49,7 +49,7 @@ const GuestsPage = () => {
     }, [fetchGroup]);
 
     useEffect(() => {
-        loaderDispatch!({ type: LoaderContextActions.SET_ITEMS_TO_LOAD, data: 26 });
+        loaderDispatch!({ type: LoaderContextActions.SET_ITEMS_TO_LOAD, data: 25 });
     }, [loaderDispatch]);
 
     const startMusic = () => {
@@ -61,9 +61,9 @@ const GuestsPage = () => {
             <audio
                 ref={audioRef}
                 src={require('../music.mp3')}
-                onCanPlay={() => {
-                    loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
-                }}
+                // onCanPlay={() => {
+                //     loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
+                // }}
                 loop
             />
             <div className="page">

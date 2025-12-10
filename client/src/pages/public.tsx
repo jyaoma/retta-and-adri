@@ -21,7 +21,7 @@ const PublicPage = () => {
     const loaderDispatch = useLoaderDispatchContext();
 
     useEffect(() => {
-        loaderDispatch!({ type: 'SET_ITEMS_TO_LOAD', data: 24 });
+        loaderDispatch!({ type: 'SET_ITEMS_TO_LOAD', data: 23 });
     }, [loaderDispatch]);
 
     const startMusic = () => {
@@ -33,9 +33,9 @@ const PublicPage = () => {
             <audio
                 ref={audioRef}
                 src={require('../music.mp3')}
-                onCanPlay={() => {
-                    loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
-                }}
+                // onCanPlay={() => {
+                //     loaderDispatch!({type: LoaderContextActions.INCREMENT_LOADED_ITEMS});
+                // }}
                 loop
             />
             <div className="page">
