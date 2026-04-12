@@ -11,8 +11,8 @@
     "preserver": "npm run build",
     "server": "node ./bin/www",
     "start": "node ./bin/www",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "cd client && npm i && npm run build",
+    "deploy": "cd client && gh-pages -d build"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.4.4",
