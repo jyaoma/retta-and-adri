@@ -32,6 +32,7 @@ jobs:
         working-directory: ./client
         run: npm run build
         env:
+          CI: false
           # This ensures the build uses the correct relative paths
           PUBLIC_URL: /retta-and-adri
 
