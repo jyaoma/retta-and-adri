@@ -1,0 +1,42 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to your main branch
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          # Point cache to the client folder's lock file
+          cache-dependency-path: client/package-lock.json
+
+      - name: Install Dependencies 📦
+        working-directory: ./client
+        run: npm install
+
+      - name: Build Project 🏗️
+        working-directory: ./client
+        run: npm run build
+        env:
+          # This ensures the build uses the correct relative paths
+          PUBLIC_URL: /retta-and-adri
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: client/build # The folder the action should deploy
+          branch: gh-pages # The branch the action should deploy to
