@@ -2,6 +2,7 @@
   "name": "retta-and-adri",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://jyaoma.github.io/retta-and-adri",
   "scripts": {
     "build:client": "cd ./client && npm i && npm run build && mkdir -p ../dist/client/build; cp -r ./build ../dist/client",
     "build:server": "tsc && mkdir -p ./dist/queries/sql && cp -r ./queries/sql/ ./dist/queries/sql/.",
@@ -9,9 +10,12 @@
     "build": "npm run build:server:heroku && npm run build:client",
     "preserver": "npm run build",
     "server": "node ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.4.4",
     "connection-string": "^4.4.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
